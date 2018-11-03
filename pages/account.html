@@ -3,10 +3,38 @@
     <head>
         <meta charset="utf-8" />
         <title>Your account</title>
+        <link rel="stylesheet" type="text/css" href="../css/account_style.css" />
         <link rel="stylesheet" type="text/css" href="../css/style.css" />
     </head>
     <body>
-        <h1>Welcome INSERT NAME HERE</h1>
+        <!-- Top Nav bar -->
+        <div class="topnav">
+            <a class="active" href="./account.html">Your Account</a>
+            <a href="./search.html">Search</a>
+        </div>
+
+        <h1>Welcome!</h1>
+        <!-- Tabs -->
+        <div class="tab">
+            <button class="tablinks" id="defaultOpen" onclick="openTab(event, 'schedule')">Current Schedule</button>
+            <button class="tablinks" onclick="openTab(event, 'calendar')">Academic Calendar</button>
+            <button class="tablinks" onclick="openTab(event, 'requirements')">Graduation Requirements</button>
+            <button class="tablinks" onclick="openTab(event, 'reviews')">Your Course Reviews</button>
+        </div>
+
+        <!-- Individual tab content -->
+        <div id="schedule" class="tabcontent">
+            <h3>Current Schedule</h3>
+        </div>
+        <div id="calendar" class="tabcontent">
+            <h3>Academic Calendar</h3>
+        </div>
+        <div id="requirements" class="tabcontent">
+            <h3>Graduation Requirements</h3>
+        </div>
+        <div id="reviews" class="tabcontent">
+            <h3>Your Course Reviews</h3>
+        </div>
     </body>
     <script type="text/javascript" src="../js/account_page.js"></script>
 </html>
