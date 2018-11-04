@@ -21,7 +21,7 @@
             <!-- Advanced Search Options -->
             <button type="button" onclick="toggleAdvanced()">Advanced Search</button>
             <div id="advanced" style="visibility: hidden;">
-                <p>Filter Search</p>
+                <h3>Filter Search</h3>
                 <!-- TODO: Make this in a prettier grid -->
                 <form>
                     <input type="checkbox" id="openCheck">
@@ -34,7 +34,14 @@
                 <br/>
                 <label for="washuSchool">School: </label>
                 <select id="washuSchool" autocomplete="off">
-                    <option value="1">Engineering</option>
+                    <option value="1">Architecture</option>
+                    <option value="2">Art</option>
+                    <option value="3">Arts & Sciences</option>
+                    <option value="4">Business</option>
+                    <option value="5">Design & Visual Arts</option>
+                    <option value="6">Engineering</option>
+                    <option value="7">Law</option>
+                    <option value="8">Medicine</option>
                 </select>
                 <br/>
 
@@ -49,7 +56,9 @@
                     <option value="1">Fall 2018</option>
                 </select>
             </div>
+            <div id="searchResults"></div>
         </div>
     </body>
+    <script type="text/javascript" src="../backend/courses.js"></script>
     <script type="text/javascript" src="../js/search_page.js"></script>
 </html>

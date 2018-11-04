@@ -1,1 +1,16 @@
 # CSE 556 Project
+
+Final group project for CSE 556
+
+### TO-DO List
+
+These are all things that should be possible to do in one form or another. Since there's no backend, a lot of this can be 'faked' but it should still appear that it works.
+
+[] Create a full-ish course database to search through
+[] Be able to search courses by name, and filter based on user settings
+[] User should be able to view their own schedule
+[] User should be able to add/drop a course, and have that update on their personal schedule
+[] User should be able to view an academic calendar
+[] User should be able to see some graduation requirements
+[] User should be able to see their prior reviews
+[] User should be able to leave a new review on a course, and see it in their reviews tab
