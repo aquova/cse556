@@ -1,7 +1,11 @@
 body {
     font-family: Helvetica, sans-serif;
-    /* text-align: center;
-    background-color: #9fa2b4; */
+}
+
+.center {
+    margin: auto;
+    display: table;
+    text-align: center;
 }
 
 /* Nav Bar CSS */

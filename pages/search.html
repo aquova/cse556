@@ -10,12 +10,46 @@
         <div class="topnav">
             <a href="./account.html">Your Account</a>
             <a class="active" href="./search.html">Search</a>
+            <a href="./registration.html">Registration</a>
         </div>
 
-        <h1>Search for classes</h1>
-        <form>
-            <input type="text" autocomplete="off">
-        </form>
+        <div class="center">
+            <h1>Search for classes</h1>
+            <form>
+                <input type="text" autocomplete="off">
+            </form>
+            <!-- Advanced Search Options -->
+            <button type="button" onclick="toggleAdvanced()">Advanced Search</button>
+            <div id="advanced" style="visibility: hidden;">
+                <p>Filter Search</p>
+                <!-- TODO: Make this in a prettier grid -->
+                <form>
+                    <input type="checkbox" id="openCheck">
+                    <label for="openCheck">Only Open Courses</label><br/>
+                    <input type="checkbox" id="undergradCheck">
+                    <label for="undergradCheck">Only Undergraduate</label><br/>
+                    <input type="checkbox" id="prereqCheck">
+                    <label for="prereqCheck">Meet Prerequisites</label><br/>
+                </form>
+                <br/>
+                <label for="washuSchool">School: </label>
+                <select id="washuSchool" autocomplete="off">
+                    <option value="1">Engineering</option>
+                </select>
+                <br/>
+
+                <label for="department">Department: </label>
+                <select id="department" autocomplete="off">
+                    <option value="1">All Departments</option>
+                </select>
+                <br/>
+
+                <label for="semester">Semester: </label>
+                <select id="semester" autocomplete="off">
+                    <option value="1">Fall 2018</option>
+                </select>
+            </div>
+        </div>
     </body>
     <script type="text/javascript" src="../js/search_page.js"></script>
 </html>
