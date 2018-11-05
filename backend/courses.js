@@ -13,6 +13,18 @@ var classesDB = [
     ["ENG",  "CSE",      260,      1300,       1430,     "MW",     "Richard",     "Intro to Digital Logic"],
     ["ENG",  "CSE",      330,      1000,       1130,     "MW",     "Sproull",     "Rapid Prototype Development"],
     ["ENG",  "CSE",      332,      1000,       1130,     "MW",     "Shidal",      "Object-Oriented Software Development"],
+    ["ENG",  "BME",      240,      1430,       1600,     "T",      "Moran",       "Biomechanics"],
+    ["ENG",  "BME",      301,      1300,       1430,     "TR",     "Silva",       "Quantitative Physiology II"],
+    ["ENG",  "BME",      329,      1000,       1130,     "MW",     "Ledbetter",   "Biothermodynamics in Practice"],
+    ["ENG",  "BME",      366,      1130,       1300,     "MW",     "Shao",        "Transport Phenomena"],
+    ["ENG",  "BME",      442,      1000,       1130,     "MW",     "Rudra",       "Biomacromolecules Design"],
+    ["ENG",  "BME",      443,      1430,       1600,     "TR",     "Vahey",       "Molecular and Cellular Engineering"],
+    ["ENG",  "ESE",      103,      1600,       1800,     "T",      "Richter",     "Intro to Electrical Engineering"],
+    ["ENG",  "ESE",      205,      1500,       1600,     "F",      "Sheehan",     "Intro to Engineering Design"],
+    ["ENG",  "ESE",      230,      1300,       1430,     "TR",     "Nussinov",    "Intro to Electrical Circuits"],
+    ["ENG",  "ESE",      318,      1130,       1300,     "MW",     "Hoven",       "Engineering Mathematics A"],
+    ["ENG",  "ESE",      319,      900,        1000,     "MWF",    "Hasting",     "Engineering Mathematics B"],
+    ["ENG",  "ESE",      326,      1000,       1130,     "MW",     "Zhang",       "Probability and Statistics"],
 ]
 
 // A map of Schools to an array of its departments
@@ -21,7 +33,7 @@ var deptMap = {
     "ARTSCI" : [],
     "BUS" : [],
     "DVA" : [],
-    "ENG" : ["CSE"],
+    "ENG" : ["CSE", "BME", "ESE"],
     "LAW" : [],
     "MED" : []
 }

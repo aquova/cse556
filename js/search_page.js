@@ -20,10 +20,13 @@ function showResults(matches) {
 
     for (var i = 0; i < matches.length; i++) {
         var res = document.createElement("div")
-        // TODO: Make this a nice and pretty div
+        res.classList.add("course")
         var name = document.createElement("p")
         name.innerHTML = matches[i][1] + " " + matches[i][2] + " - " + matches[i][7]
         res.appendChild(name)
+        var info = document.createElement("p")
+        info.innerHTML = matches[i][5] + " " + twentyfour2ampm(matches[i][3]) + "-" + twentyfour2ampm(matches[i][4])
+        res.appendChild(info)
 
         results.appendChild(res)
     }
@@ -62,7 +65,7 @@ function populateDepartment() {
     departmentNode.append(opt)
 
     if (school == "ALL") {
-        // Populate with all keys in map
+        // Populate with all values in map
     } else {
         var dpts = deptMap[school]
         for (var i = 0; i < dpts.length; i++) {
@@ -72,4 +75,21 @@ function populateDepartment() {
             departmentNode.append(opt)
         }
     }
+}
+
+function twentyfour2ampm(time) {
+    var hour = Math.floor((time / 100))
+    var minute = time - (hour * 100)
+    hour %= 12
+    if (hour == 0) {
+        hour = 12
+    }
+    var ampm = hour + ":" + ("0" + minute).slice(-2) // This way the minute value is always 2 digits
+    if (time >= 1200) {
+        ampm += "P"
+    } else {
+        ampm += "A"
+    }
+
+    return ampm
 }

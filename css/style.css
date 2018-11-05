@@ -8,6 +8,13 @@ body {
     text-align: center;
 }
 
+.course {
+    background-color: #ddd;
+    width: 50%;
+    margin: auto;
+    display: table;
+}
+
 /* Nav Bar CSS */
 /* From here: https://www.w3schools.com/howto/howto_js_topnav.asp */
 .topnav {
