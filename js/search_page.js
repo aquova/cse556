@@ -32,33 +32,25 @@ function showResults(matches) {
     }
 }
 
-function searchSelect() {
+function search() {
     var matches = []
+    var textBox = document.getElementById("searchBar").value.toLowerCase()
     var school = document.getElementById("washuSchool").value
     var department = document.getElementById("department").value
-    // var semester = document.getElementById("semester").value
 
     for (var i = 0; i < classesDB.length; i++) {
-        // Course matches school search
-        if ((classesDB[i][0] == school) || (school == "ALL")) {
-            if ((classesDB[i][1] == department) || (department == "ALL")) {
-                matches.push(classesDB[i])
+        // A correct match has its title as a substring
+        if (classesDB[i][7].toLowerCase().includes(textBox)) {
+            // Matches the school dropdown
+            if ((classesDB[i][0] == school) || (school == "ALL")) {
+                // Matches the department dropdown
+                if ((classesDB[i][1] == department) || (department == "ALL")) {
+                    matches.push(classesDB[i])
+                }
             }
         }
     }
 
-    showResults(matches)
-}
-
-function searchText() {
-    var matches = []
-    var textBox = document.getElementById("searchBar").value.toLowerCase()
-
-    for (var i = 0; i < classesDB.length; i++) {
-        if (classesDB[i][7].toLowerCase().includes(textBox)) {
-            matches.push(classesDB[i])
-        }
-    }
     showResults(matches)
 }
 
