@@ -15,7 +15,13 @@
 
         <div class="center">
             <h1>Search for classes</h1>
-            <!-- Instead of a search bar, I decided to go with drop down options, as it seemed easier -->
+            <h3>Search by Name</h3>
+            <input type="text" id="searchBar" autocomplete="off">
+            <button type="button" onclick="searchText()">Search</button>
+            <br/>
+            <h3>-- OR --</h3>
+
+            <h3>Search by Department</h3>
             <label for="washuSchool">School: </label>
             <select id="washuSchool" autocomplete="off" onchange="populateDepartment()">
                 <option value="ALL">All Schools</option>
@@ -40,11 +46,11 @@
                 <option value="1">Fall 2018</option>
             </select>
             <br/>
-            <button type="button" onclick="search()">Search</button><br/>
+            <button type="button" onclick="searchSelect()">Search</button><br/>
 
             <!-- Advanced Search Options -->
             <button type="button" onclick="toggleAdvanced()">Advanced Search Options</button>
-            <div id="advanced" style="visibility: hidden;">
+            <div id="advanced" class="hidden">
                 <h3>Filter Search</h3>
                 <!-- TODO: Make this in a prettier grid -->
                 <form>
@@ -58,6 +64,7 @@
                 <br/>
             </div>
         </div>
+        <hr/>
         <div id="searchResults"></div>
     </body>
     <script type="text/javascript" src="../backend/courses.js"></script>

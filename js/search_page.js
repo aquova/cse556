@@ -3,10 +3,10 @@
 function toggleAdvanced() {
     var adv = document.getElementById("advanced")
 
-    if (adv.style.visibility == "hidden") {
-        adv.style.visibility = "visible"
+    if (adv.classList.contains("hidden")) {
+        adv.classList.remove("hidden")
     } else {
-        adv.style.visibility = "hidden"
+        adv.classList.add("hidden")
     }
 }
 
@@ -32,7 +32,7 @@ function showResults(matches) {
     }
 }
 
-function search() {
+function searchSelect() {
     var matches = []
     var school = document.getElementById("washuSchool").value
     var department = document.getElementById("department").value
@@ -47,6 +47,18 @@ function search() {
         }
     }
 
+    showResults(matches)
+}
+
+function searchText() {
+    var matches = []
+    var textBox = document.getElementById("searchBar").value.toLowerCase()
+
+    for (var i = 0; i < classesDB.length; i++) {
+        if (classesDB[i][7].toLowerCase().includes(textBox)) {
+            matches.push(classesDB[i])
+        }
+    }
     showResults(matches)
 }
 
