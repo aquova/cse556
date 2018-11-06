@@ -25,12 +25,23 @@ var classesDB = [
     ["ENG",  "ESE",      318,      1130,       1300,     "MW",     "Hoven",       "Engineering Mathematics A"],
     ["ENG",  "ESE",      319,      900,        1000,     "MWF",    "Hasting",     "Engineering Mathematics B"],
     ["ENG",  "ESE",      326,      1000,       1130,     "MW",     "Zhang",       "Probability and Statistics"],
+    ["ARCH", "ARCH",     101,      830,        1130,     "MW",     "He",          "Drawing"],
+    ["ARCH", "ARCH",     112,      1300,       1600,     "MW",     "TBA",         "Intro to Design Processes II"],
+    ["ARCH", "ARCH",     175,      1300,       1430,     "TR",     "Lindsey",     "Designing Creativity"],
+    ["ARCH", "ARCH",     183,      1100,       1200,     "F",      "Lorberbaum",  "Practices in Architecture + Art + Design"],
+    ["ARCH", "ARCH",     212,      1300,       1700,     "TR",     "TBA",         "Intro to Design Processes IV"],
+    ["ARCH", "ARCH",     312,      1300,       1700,     "MWF",    "TBA",         "Architectural Design II"],
+    ["ARCH", "ARCH",     312,      1300,       1700,     "MWF",    "TBA",         "Architectural Design II"],
+    ["AS",   "BIO",     2960,      1000,       1100,     "MWF",    "Kunkel",      "Principles of Biology I"],
+    ["AS",   "BIO",     2961,      1600,       1800,     "M",      "Hafer",       "Collaborative Phage Bioinformatics"],
+    ["AS",   "BIO",      303,      1500,       1700,     "M",      "Smith",       "Human Biology"],
+    ["AS",   "BIO",     3041,      1430,       1600,     "TR",     "Haswell",     "Plant Biology"],
 ]
 
 // A map of Schools to an array of its departments
 var deptMap = {
-    "ARCH" : [],
-    "ARTSCI" : [],
+    "ARCH" : ["ARCH"],
+    "AS" : ["BIO"],
     "BUS" : [],
     "DVA" : [],
     "ENG" : ["CSE", "BME", "ESE"],
