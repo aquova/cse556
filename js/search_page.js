@@ -1,5 +1,4 @@
 // Code for manipulating the search page
-
 function toggleAdvanced() {
     var adv = document.getElementById("advanced")
 
@@ -27,6 +26,15 @@ function showResults(matches) {
         var info = document.createElement("p")
         info.innerHTML = matches[i][5] + " " + twentyfour2ampm(matches[i][3]) + "-" + twentyfour2ampm(matches[i][4])
         res.appendChild(info)
+        var addButton = document.createElement("input")
+        addButton.type = "button"
+        addButton.id = i
+        addButton.value = "+"
+        addButton.addEventListener("click", function(d) {
+            addCourse(matches[d.target.id])
+            d.target.style = "cursor: not-allowed"
+        })
+        res.appendChild(addButton)
 
         results.appendChild(res)
     }
@@ -79,21 +87,4 @@ function populateDepartment() {
             departmentNode.append(opt)
         }
     }
-}
-
-function twentyfour2ampm(time) {
-    var hour = Math.floor((time / 100))
-    var minute = time - (hour * 100)
-    hour %= 12
-    if (hour == 0) {
-        hour = 12
-    }
-    var ampm = hour + ":" + ("0" + minute).slice(-2) // This way the minute value is always 2 digits
-    if (time >= 1200) {
-        ampm += "P"
-    } else {
-        ampm += "A"
-    }
-
-    return ampm
 }
