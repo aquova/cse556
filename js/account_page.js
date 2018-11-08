@@ -1,6 +1,7 @@
 // Code for showing/manipulating the user account page
 
 // Tab behavior from here: https://www.w3schools.com/howto/howto_js_tabs.asp
+// Calendar view from here: https://javascript.daypilot.org/open-source/
 function openTab(evt, tab) {
     // Declare all variables
     var i, tabcontent, tablinks;
@@ -22,5 +23,37 @@ function openTab(evt, tab) {
     evt.currentTarget.className += " active";
 }
 
+function populateSchedule() {
+    var dp = new DayPilot.Calendar("dp")
+    dp.viewType = "Week"
+    dp.dayBeginsHour = 8
+    dp.dayEndsHour = 18
+    dp.eventMoveHandling = "Disabled"
+    dp.init()
+    dp.events.list = processCalendarEvents()
+    dp.update()
+}
+
+function processCalendarEvents() {
+    var chosen = getWorksheet()
+    var output = []
+
+    // Generates the array of classes, which should be an array of dictionaries
+    for (var i = 0; i < chosen.length; i++) {
+        var allMeetings = calcCalTimes(chosen[i])
+        for (var j = 0; j < allMeetings.length; j++) {
+            var classInfo = {}
+            classInfo["id"] = output.length + 1
+            classInfo["text"] = chosen[i][1] + " " + chosen[i][2]
+            classInfo["start"] = allMeetings[j][0]
+            classInfo["end"] = allMeetings[j][1]
+            output.push(classInfo)
+        }
+    }
+
+    return output
+}
+
 // Display 'Current Schedule' tab on page load
 document.getElementById("defaultOpen").click()
+populateSchedule()
