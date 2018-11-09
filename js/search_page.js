@@ -46,20 +46,9 @@ function search() {
     var school = document.getElementById("washuSchool").value
     var department = document.getElementById("department").value
 
-    for (var i = 0; i < classesDB.length; i++) {
-        // A correct match has its title as a substring
-        if (classesDB[i][7].toLowerCase().includes(textBox)) {
-            // Matches the school dropdown
-            if ((classesDB[i][0] == school) || (school == "ALL")) {
-                // Matches the department dropdown
-                if ((classesDB[i][1] == department) || (department == "ALL")) {
-                    matches.push(classesDB[i])
-                }
-            }
-        }
-    }
-
-    showResults(matches)
+    window.location = "./listing.html?textBox=" + textBox + "&school=" + school + "&dept=" + department;
+    // var qs = new Querystring();
+    parse();
 }
 
 // When the "school" dropdown is changed, the options in the "department" dropdown should change
@@ -87,4 +76,7 @@ function populateDepartment() {
             departmentNode.append(opt)
         }
     }
+
+    showResults(matches)
+    console.log(textBox + " " + school + " " + department);
 }

@@ -1029,3 +1029,6 @@ body {
 .topnav a.active {
     background-color: #ccc;
 }
+.full{
+    width: 100%;
+}
