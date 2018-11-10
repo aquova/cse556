@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f2f1ab3a-2a62-44d6-9eb8-dbaa3e8dbc93" name="Default" comment="" />
+    <list default="true" id="f2f1ab3a-2a62-44d6-9eb8-dbaa3e8dbc93" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/pages/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/search.html" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -63,11 +65,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="search.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="search.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pages/search.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="66" column="55" lean-forward="true" selection-start-line="60" selection-start-column="8" selection-end-line="66" selection-end-column="55" />
+            <state relative-caret-position="272">
+              <caret line="94" column="50" selection-start-line="94" selection-start-column="50" selection-end-line="94" selection-end-column="50" />
             </state>
           </provider>
         </entry>
@@ -90,7 +92,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="235">
@@ -137,7 +139,6 @@
         <option value="$PROJECT_DIR$/pages/registration.html" />
         <option value="$PROJECT_DIR$/pages/account.html" />
         <option value="$PROJECT_DIR$/css/account_style.css" />
-        <option value="$PROJECT_DIR$/pages/search.html" />
         <option value="$PROJECT_DIR$/js/search_page.js" />
         <option value="$PROJECT_DIR$/backend/courses.js" />
         <option value="$PROJECT_DIR$/scss/style.scss" />
@@ -147,6 +148,7 @@
         <option value="$PROJECT_DIR$/js/class_detail.js" />
         <option value="$PROJECT_DIR$/css/style.css" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/pages/search.html" />
       </list>
     </option>
   </component>
@@ -309,12 +311,12 @@
       <updated>1541532368728</updated>
       <workItem from="1541532370135" duration="4266000" />
       <workItem from="1541537019041" duration="4334000" />
-      <workItem from="1541710995484" duration="15458000" />
+      <workItem from="1541710995484" duration="15478000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24058000" />
+    <option name="totallyTimeSpent" value="24078000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -513,13 +515,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/search_page.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="24" column="29" lean-forward="true" selection-start-line="24" selection-start-column="29" selection-end-line="24" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pages/listing.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="412">
@@ -552,17 +547,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pages/search.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="66" column="55" lean-forward="true" selection-start-line="60" selection-start-column="8" selection-end-line="66" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="235">
           <caret line="61" column="21" selection-start-line="61" selection-start-column="21" selection-end-line="61" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/search_page.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="24" column="29" lean-forward="true" selection-start-line="24" selection-start-column="29" selection-end-line="24" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pages/search.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="94" column="50" selection-start-line="94" selection-start-column="50" selection-end-line="94" selection-end-column="50" />
         </state>
       </provider>
     </entry>
