@@ -110,5 +110,8 @@ var reviews = [
     ["ART",  "CSE",      338,   "", "C",    4,  ""],
     ["ART",  "CSE",      416,   "", "A",    3,  ""],
     ["ART",  "CSE",      520,   "", "B",    4,  ""],
-    ["ART",  "ART",      6714,  "", "A",    4,  ""]
+    ["ART",  "ART",      6714,  "", "A",    4,  ""],
+    ["ENG",  "CSE",      217,   "Lilly Tomlin", "B", 2, "What a fun class intro to data science is. If you want to take ML later this is the class for you. Hard homework but the work load is manageable"],
+    ["ENG",  "CSE",      217,   "Lilly Tomlin", "B", 1, "What a fun class intro to data science is. If you want to take ML later this is the class for you. Hard homework but the work load is manageable"]
+
 ]
