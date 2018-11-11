@@ -30,7 +30,8 @@ function fillDetails(c) {
     document.getElementById("course").id = c
     document.getElementById("class_number").innerHTML = c[7]
     document.getElementById("class_title").innerHTML = c[0] + " " + c[1] + " " + c[2]
+    document.title = c[1] + " " + c[2]
     document.getElementById("course_description").innerHTML = c[9]
     document.getElementById("teacher").innerHTML = c[6]
-    document.getElementById("class_time").innerHTML = c[5] + " " + c[3] + "-" + c[4]
+    document.getElementById("class_time").innerHTML = c[5] + " " + twentyfour2ampm(c[3]) + "-" + twentyfour2ampm(c[4])
 }

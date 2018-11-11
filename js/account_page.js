@@ -36,9 +36,15 @@ function populateSchedule() {
     dp.viewType = "Week"
     dp.dayBeginsHour = 8
     dp.dayEndsHour = 18
+    dp.theme = "calendar_transparent"
     dp.eventMoveHandling = "Disabled"
+    dp.eventResizeHandling = "Disabled"
     dp.init()
     dp.events.list = processCalendarEvents()
+    dp.onEventClicked = function(d) {
+        var page = "detail.html?class=" + d.e["data"]["name"]
+        window.open(page, '_top')
+    }
     dp.update()
 }
 
@@ -55,6 +61,7 @@ function processCalendarEvents() {
             classInfo["text"] = chosen[i][1] + " " + chosen[i][2]
             classInfo["start"] = allMeetings[j][0]
             classInfo["end"] = allMeetings[j][1]
+            classInfo["name"] = chosen[i][7]
             output.push(classInfo)
         }
     }
@@ -62,6 +69,15 @@ function processCalendarEvents() {
     return output
 }
 
+function academicCalendar() {
+    var dp = new DayPilot.Month("ac")
+    dp.theme = "calendar_transparent"
+    dp.eventMoveHandling = "Disabled"
+    dp.eventResizeHandling = "Disabled"
+    dp.init()
+}
+
 // Display 'Current Schedule' tab on page load
 document.getElementById("defaultOpen").click()
 populateSchedule()
+academicCalendar()
