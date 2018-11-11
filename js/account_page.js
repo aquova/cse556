@@ -2,6 +2,14 @@
 
 // Tab behavior from here: https://www.w3schools.com/howto/howto_js_tabs.asp
 // Calendar view from here: https://javascript.daypilot.org/open-source/
+document.addEventListener('DOMContentLoaded', disp, false);
+
+function disp() {
+
+    console.log(decodeURIComponent(document.cookie))
+
+}
+
 function openTab(evt, tab) {
     // Declare all variables
     var i, tabcontent, tablinks;

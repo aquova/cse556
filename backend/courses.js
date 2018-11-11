@@ -60,3 +60,7 @@ var deptMap = {
     "LAW" : [],
     "MED" : []
 }
+
+var users = [
+    ["test", "123"]
+]

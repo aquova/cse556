@@ -12,6 +12,7 @@ function fillClass() {
         title = title.replace("%20"," ")
     }
 
+
     console.log(title)
     for (var i = 0; i < classesDB.length; i++) {
         // A correct match has its title as a substring
@@ -19,12 +20,14 @@ function fillClass() {
             // Matches the school dropdown
             fillDetails(classesDB[i]);
             console.log(classesDB[i]);
+
         }
     }
 
 }
 
 function fillDetails(c) {
+    document.getElementById("course").id = c
     document.getElementById("class_number").innerHTML = c[7]
     document.getElementById("class_title").innerHTML = c[0] + " " + c[1] + " " + c[2]
     document.getElementById("course_description").innerHTML = c[9]

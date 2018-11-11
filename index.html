@@ -69,13 +69,13 @@
                                 <h2 >Welcome to the Washington University Account System</h2>
                                 <hr/>
                                 <h2>Log in!</h2>
-                                <form action="pages/account.html">
+                                <!--<form action="pages/account.html">-->
                                     <input type="text" id="username">
                                     <br/>
                                     <input type="password" id="password">
                                     <br/>
-                                    <input type="submit" value="Submit">
-                                </form>
+                                    <input type="submit" onclick="sign_user_in()" value="Submit">
+                                <!--</form>-->
 
                         </div>
                     </div>
@@ -114,8 +114,8 @@
 <script src="js/popper.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script type="text/javascript" src="backend/courses.js"></script>
-<script type="text/javascript" src="js/search_page.js"></script>
-
+<script type="text/javascript" src="js/cookies.js"></script>
+<script type="text/javascript" src="js/sign_in.js"></script>
 <script>
     $(window).scroll(function() {
         // 100 = The point you would like to fade the nav in.

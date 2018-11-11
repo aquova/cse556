@@ -47,9 +47,6 @@ function parse() {
             res = res + " at " + school
         }
     }
-    // }else{
-    //     res = "ALL CLASSES"
-    // }
 
     document.getElementById("search_field").innerHTML = res
 }
@@ -60,7 +57,7 @@ function buildListing(elm, arr) {
     div.id = arr[7];
 
     div.className = 'featured-place-wrap full';
-
+    var course = arr
     div.innerHTML =
         '<span class="featured-rating-orange ">6.5</span>\
         <a href="detail.html?class='+arr[7]+'">\
@@ -75,6 +72,7 @@ function buildListing(elm, arr) {
         <li><span class="icon-link"></span> <p>'+arr[8]+'</p></li>\
         </ul>\
         <div class="bottom-icons">\
+        <span class="fa fa-plus" id="'+arr+'" onclick="addCourse(this.id)"></span>\
         <span class="ti-heart" id="'+arr[7]+'" onclick="likeclass(this)"></span>\
          </div>';
 

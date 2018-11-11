@@ -1,3 +1,5 @@
+document.addEventListener('DOMContentLoaded', displayCourses, false);
+
 function displayCourses() {
     var courseList = document.getElementById("enrolled")
 
@@ -32,4 +34,4 @@ function displayCourses() {
     }
 }
 
-displayCourses()
+//displayCourses()

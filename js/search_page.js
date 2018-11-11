@@ -47,7 +47,6 @@ function search() {
     var department = document.getElementById("department").value
 
     window.location = "./listing.html?textBox=" + textBox + "&school=" + school + "&dept=" + department;
-    // var qs = new Querystring();
     parse();
 }
 

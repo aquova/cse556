@@ -5,7 +5,9 @@
 // Cookie functions adapted from here: https://www.w3schools.com/js/js_cookies.asp
 
 function setUsername(name) {
-    document.cookie = "username=" + name + ";"
+    document.cookie = "username=" + name + "; expires=Tue, 01 Jan 2019 00:00:01 GMT"
+    window.location = "pages/account.html"
+
 }
 
 function getUsername() {
@@ -26,13 +28,18 @@ function getUsername() {
 
 function addCourse(course) {
     // If course is not already in cookie, add
+    course = course.split(",")
+    console.log(course)
     if (!checkCourse(course)) {
         var name = course[1] + " " + course[2] + "=true;"
         document.cookie = name
+        console.log(course)
+
     }
 }
 
 function checkCourse(course) {
+
     var courseName = course[1] + " " + course[2]
     var decodedCookie = decodeURIComponent(document.cookie)
     var ca = decodedCookie.split("; ")
