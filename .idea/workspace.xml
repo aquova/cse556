@@ -2,19 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f2f1ab3a-2a62-44d6-9eb8-dbaa3e8dbc93" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/js/sign_in.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/courses.js" beforeDir="false" afterPath="$PROJECT_DIR$/backend/courses.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/account_page.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/account_page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/class_detail.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/class_detail.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/cookies.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/cookies.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/listing.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/listing.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/registration_page.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/registration_page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/search_page.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/search_page.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/listing.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/listing.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pages/registration.html" beforeDir="false" afterPath="$PROJECT_DIR$/pages/registration.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -55,7 +43,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cookies.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="cookies.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/js/cookies.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="167">
@@ -112,11 +100,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="courses.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="courses.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/backend/courses.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret line="31" column="59" selection-start-line="31" selection-start-column="59" selection-end-line="31" selection-end-column="59" />
+            <state relative-caret-position="425">
+              <caret line="106" column="49" lean-forward="true" selection-start-line="106" selection-start-column="49" selection-end-line="106" selection-end-column="49" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -172,13 +160,13 @@
         <option value="$PROJECT_DIR$/pages/listing.html" />
         <option value="$PROJECT_DIR$/backend/users.csv" />
         <option value="$PROJECT_DIR$/pages/detail.html" />
-        <option value="$PROJECT_DIR$/backend/courses.js" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/js/sign_in.js" />
         <option value="$PROJECT_DIR$/js/account_page.js" />
         <option value="$PROJECT_DIR$/js/registration_page.js" />
         <option value="$PROJECT_DIR$/js/listing.js" />
         <option value="$PROJECT_DIR$/js/cookies.js" />
+        <option value="$PROJECT_DIR$/backend/courses.js" />
       </list>
     </option>
   </component>
@@ -336,12 +324,12 @@
       <updated>1541532368728</updated>
       <workItem from="1541532370135" duration="4266000" />
       <workItem from="1541537019041" duration="4334000" />
-      <workItem from="1541710995484" duration="22563000" />
+      <workItem from="1541710995484" duration="31182000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31163000" />
+    <option name="totallyTimeSpent" value="39782000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -563,16 +551,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/courses.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="31" column="59" selection-start-line="31" selection-start-column="59" selection-end-line="31" selection-end-column="59" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/registration_page.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="612">
@@ -612,6 +590,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="167">
           <caret line="31" column="22" selection-start-line="31" selection-start-column="22" selection-end-line="31" selection-end-column="22" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/courses.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="106" column="49" lean-forward="true" selection-start-line="106" selection-start-column="49" selection-end-line="106" selection-end-column="49" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
