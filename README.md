@@ -12,5 +12,5 @@ These are all things that should be possible to do in one form or another. Since
 - [ ] User should be able to add/drop a course, and have that update on their personal schedule
 - [ ] User should be able to view an academic calendar
 - [ ] User should be able to see some graduation requirements
-- [ ] User should be able to see their prior reviews
-- [ ] User should be able to leave a new review on a course, and see it in their reviews tab
+- [x] User should be able to see their prior reviews
+- [x] User should be able to leave a new review on a course, and see it in their reviews tab

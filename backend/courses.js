@@ -89,12 +89,15 @@ var deptMap = {
 }
 
 var users = [
-    ["test", "123"]
+    ["test", "123"],
+    ["eng_student", "123"]
 ]
 
 // For each user, just make up some requirements they have/don't have and display them.
 // This probably should be combined with the users array
 var requirements = [
+    //student, [done array], [need to finish array]
+    ["eng_student", ["6 units of Humanities", "6 units of Social Sciences", "3 units of upper level Humanities/Social Sciences", "CSE 131", "CSE 132","CSE 240", "CSE 247", "CSE 332", "ESE 318", "MTH 131", "MTH 132", "MTH 233", "Technical Writing", "4 units of Natural Sciences"], ["CSE 347", "MTH 326", "At least one S course", "At least one M or A course", "Total 120 credits"]]
 
 ]
 

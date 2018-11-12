@@ -149,9 +149,32 @@ function populateReviews(){
     }
 }
 
+function populateRequirements(){
+    var el = document.getElementById("requirements")
+
+    var user = getUsername()
+    var d = document.createElement('div');
+    var inhtml = '';
+    for(var i = 0; i <requirements.length; i++){
+       if(requirements[i][0] == user) {
+           inhtml = inhtml + '<hr><h5>Fulfilled Requirements</h5>'
+           for (var j = 0; j < requirements[i][1].length; j++) {
+                inhtml = inhtml + '<input type="checkbox" onclick="return false;" checked/>     '+requirements[i][1][j]+'<br>'
+           }
+           inhtml = inhtml + '<hr><h5>Requirements Left to Fulfill</h5>'
+           for (var j = 0; j < requirements[i][2].length; j++) {
+               inhtml = inhtml + '<input type="checkbox" onclick="return false;"/>      '+requirements[i][1][j]+'<br>'
+           }
+       }
+   }
+   d.innerHTML = inhtml
+    el.appendChild(d);
+}
+
 // Display 'Current Schedule' tab on page load
 document.getElementById("defaultOpen").click()
 populateSchedule()
 academicCalendar()
 populateReviews()
+populateRequirements()
 document.getElementById("welcome-message").innerHTML = "Welcome " + getUsername() + "!"
