@@ -67,64 +67,29 @@
                                 <div class="col-md-12">
                                     <div class="slider-content_wrap">
                                         <h1>Search for classes</h1>
-                                        <!--<input type="text" id="searchBar" autocomplete="off">-->
                                     </div>
                                 </div>
                             </div>
                             <div class="row d-flex justify-content-center">
                                 <div class="col-md-10">
                                     <div class="form-wrap mt-4"></div>
-                                        <!--<form class="form-wrap mt-4" action="./listing.html" onsubmit="search()">-->
-                                            <div class="btn-group" role="group" aria-label="Basic example">
-                                                <input type="text" placeholder="What are your looking for?" id="searchBar" autocomplete="off" class="btn-group1">
-                                                <select type="text" placeholder="School" id="washuSchool" class="btn-group2" autocomplete="off" onchange="populateDepartment()">
-                                                    <option value="ALL">All Schools</option>
-                                                    <option value="ARCH">Architecture</option>
-                                                    <option value="AS">Arts & Sciences</option>
-                                                    <option value="BUS">Business</option>
-                                                    <option value="DVA">Design & Visual Arts</option>
-                                                    <option value="ENG">Engineering</option>
-                                                    <option value="LAW">Law</option>
-                                                    <option value="MED">Medicine</option>
-                                                </select>
-                                                <select type="text" placeholder="Department" id="department" class="btn-group3" >
-                                                    <option value="ALL">All Departments</option>
-                                                </select>
-                                                <button type="submit" onclick="search()" class="btn-form"><span class="icon-magnifier search-icon"></span>SEARCH<i class="pe-7s-angle-right"></i></button>
-                                           <!--onclick="search()"-->
-                                            </div>
-                                    <!--</form>-->
-                                    <div class="slider-link">
-                                        <button type="button" class="btn-form" onclick="toggleAdvanced()">Advanced Search Options</button>
-                                        <div id="advanced" class="hidden">
-                                            <div class="row detail-checkbox-wrap">
-                                                <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
-
-                                                    <label class="custom-control custom-checkbox">
-                                                        <input type="checkbox" class="custom-control-input">
-                                                        <span class="custom-control-indicator" id="openCheck"></span>
-                                                        <span class="custom-control-description">Only Open Courses</span>
-                                                    </label>
-                                                </div>
-                                                <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
-                                                    <label class="custom-control custom-checkbox">
-                                                        <input type="checkbox" class="custom-control-input" id="undergradCheck">
-                                                        <span class="custom-control-indicator"></span>
-                                                        <span class="custom-control-description">Undergraduate Courses  </span>
-                                                    </label>
-                                                </div>
-
-                                                <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
-
-                                                    <label class="custom-control custom-checkbox">
-                                                        <input type="checkbox" class="custom-control-input" id="prereqCheck">
-                                                        <span class="custom-control-indicator"></span>
-                                                        <span class="custom-control-description"> Check Prereqs are met  </span>
-                                                    </label>
-                                                </div>
+                                        <div class="btn-group" role="group" aria-label="Basic example">
+                                            <input type="text" placeholder="What are your looking for?" id="searchBar" autocomplete="off" class="btn-group1">
+                                            <select type="text" placeholder="School" id="washuSchool" class="btn-group2" autocomplete="off" onchange="populateDepartment()">
+                                                <option value="ALL">All Schools</option>
+                                                <option value="ARCH">Architecture</option>
+                                                <option value="AS">Arts & Sciences</option>
+                                                <option value="BUS">Business</option>
+                                                <option value="DVA">Design & Visual Arts</option>
+                                                <option value="ENG">Engineering</option>
+                                                <option value="LAW">Law</option>
+                                                <option value="MED">Medicine</option>
+                                            </select>
+                                            <select type="text" placeholder="Department" id="department" class="btn-group3" >
+                                                <option value="ALL">All Departments</option>
+                                            </select>
+                                            <button type="submit" onclick="search()" class="btn-form"><span class="icon-magnifier search-icon"></span>SEARCH<i class="pe-7s-angle-right"></i></button>
                                         </div>
-                                    </div>
-                                    <div id="searchResults"></div>
                                 </div>
                             </div>
                             </div>
@@ -133,13 +98,6 @@
                 </div>
             </div>
         </section>
-
-
-                <!--<label for="semester">Semester: </label>-->
-                <!--<select id="semester" autocomplete="off">-->
-                    <!--<option value="1">Fall 2018</option>-->
-                <!--</select>-->
-                <!--<br/>-->
 
 <!--============================= FOOTER =============================-->
 <footer class="main-block dark-bg">
