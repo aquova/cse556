@@ -9,8 +9,10 @@ function sign_user_in() {
         if(users[i][0] == user){
             if(pass == users[i][1]){
                 setUsername(user)
+                return
             }
         }
     }
+    alert("Incorrect username or password")
 }
 

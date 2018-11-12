@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/account_style.css">
     <!-- Calendar CSS -->
+    <link rel="stylesheet" href="../css/month_transparent.css">
     <link rel="stylesheet" href="../css/calendar_transparent.css">
 </head>
 <body>
@@ -67,7 +68,7 @@
             <!--<div class="col-md-12">-->
                 <div class="slider-title_box">
                     <div class="slider-content_wrap">
-                        <h1>Welcome!</h1>
+                        <h1 id="welcome-message">Welcome!</h1>
                     </div>
                 <!--</div>-->
             </div>
@@ -89,6 +90,10 @@
                 </div>
                 <div id="calendar" class="tabcontent">
                     <h3>Academic Calendar</h3>
+                    <div class="center">
+                        <button type="button" id="prev-button">Prev</button>
+                        <button type="button" id="next-button">Next</button>
+                    </div>
                     <div id="ac"></div>
                 </div>
                 <div id="requirements" class="tabcontent">
@@ -134,9 +139,10 @@
 <script src="../js/daypilot-all.min.js"></script>
 
 <script src="../js/utilities.js"></script>
-<script type="text/javascript" src="../backend/courses.js"></script>
+<script src="../backend/calendar.js"></script>
+<script src="../backend/courses.js"></script>
 <script src="../js/cookies.js"></script>
-<script type="text/javascript" src="../js/account_page.js"></script>
+<script src="../js/account_page.js"></script>
 
 <script>
     $(window).scroll(function() {

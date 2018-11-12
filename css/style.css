@@ -9,6 +9,10 @@ Author: Surjith S M
 body {
     font-family: 'Roboto', sans-serif; }
 
+h2 {
+    color: white;
+}
+
 h1 {
     font-size: 72px;
     color: #fff;
