@@ -105,6 +105,7 @@ function processAcademicCaledar() {
 function populateReviews(){
     console.log(document.cookie)
     var res = getReviews()
+    var res_2 = getYourReviews()
     var elm = document.getElementById("reviews")
     for( var i = 0; i < res.length; i++){
         console.log(res[i])
@@ -147,6 +148,66 @@ function populateReviews(){
 
             elm.appendChild(div);
     }
+    for( var i = 0; i < res_2.length; i++){
+        console.log(res_2[i])
+        var div = document.createElement('div');
+        div.className = 'customer-review_wrap';
+        var course = res_2
+
+        var sp ='';
+        if(parseInt(res_2[i][5]) < 3){
+            for(var j = 0; j< parseInt(res_2[i][5]); j++){
+                sp = sp + '<span class="customer-rating-red"></span>'
+            }
+        }else{
+            for(var j = 0; j< parseInt(res_2[i][5]); j++){
+                sp = sp + '<span></span>'
+            }
+        }
+        for(var j = 0; j < 5-parseInt(res_2[i][5]); j++){
+            sp = sp + '<span class="round-icon-blank"></span>';
+        }
+
+        div.innerHTML =
+            '<div class="customer-img">\
+            <p>Grade Received</p>\
+            <span>'+res_2[i][4]+'</span>\
+        </div>\
+         <div class="customer-content-wrap">\
+             <div class="customer-content">\
+             <div class="customer-review">\
+             <h6></h6>\
+         '+sp+'\
+         <div class="customer-rating">'+parseInt(res_2[i][5])+'</div>\
+         </div>\
+         <br>\
+         <p class="customer-text">'+res_2[i][3]+'</p>\
+         </div>\
+         </div>\
+         <hr>';
+
+
+        elm.appendChild(div);
+    }
+
+}
+function getYourReviews(){
+    var r = []
+    var user = getUsername()
+    for(var i = 0; i < reviews.length; i++){
+        var sub_r = []
+        if(reviews[i][3] == user){
+            sub_r.push(reviews[i][0])
+            sub_r.push(reviews[i][1])
+            sub_r.push(reviews[i][2])
+            sub_r.push(reviews[i][6])
+            sub_r.push(reviews[i][4])
+            sub_r.push(reviews[i][5])
+            r.push(sub_r)
+            console.log(sub_r)
+        }
+    }
+    return r
 }
 
 function populateRequirements(){

@@ -148,6 +148,8 @@ var reviews = [
     ["ART",  "CSE",      520,   "", "B",    4,  ""],
     ["ART",  "ART",      6714,  "", "A",    4,  ""],
     ["ENG",  "CSE",      217,   "Lilly Tomlin", "B", 2, "What a fun class intro to data science is. If you want to take ML later this is the class for you. Hard homework but the work load is manageable"],
-    ["ENG",  "CSE",      217,   "Lilly Tomlin", "B", 1, "What a fun class intro to data science is. If you want to take ML later this is the class for you. Hard homework but the work load is manageable"]
+    ["ENG",  "CSE",      217,   "Lilly Tomlin", "B", 1, "What a fun class intro to data science is. If you want to take ML later this is the class for you. Hard homework but the work load is manageable"],
+    ["ENG",  "CSE",      247,   "eng_student", "B", 5, "Class is really interesting. If you are studying for technical interviews it is really helpful. Also a prereq for almost everything so take it early if you can!"]
+
 
 ]
