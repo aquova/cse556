@@ -77,7 +77,55 @@ function academicCalendar() {
     dp.init()
 }
 
+function populateReviews(){
+    console.log(document.cookie)
+    var res = getReviews()
+    var elm = document.getElementById("reviews")
+    for( var i = 0; i < res.length; i++){
+        console.log(res[i])
+            var div = document.createElement('div');
+            div.className = 'customer-review_wrap';
+            var course = res
+
+            var sp ='';
+            if(parseInt(res[i][5]) < 3){
+                for(var j = 0; j< parseInt(res[i][5]); j++){
+                    sp = sp + '<span class="customer-rating-red"></span>'
+                }
+            }else{
+                for(var j = 0; j< parseInt(res[i][5]); j++){
+                    sp = sp + '<span></span>'
+                }
+            }
+            for(var j = 0; j < 5-parseInt(res[i][5]); j++){
+                sp = sp + '<span class="round-icon-blank"></span>';
+            }
+
+            div.innerHTML =
+                '<div class="customer-img">\
+                <p>Grade Received</p>\
+                <span>'+res[i][4]+'</span>\
+        </div>\
+         <div class="customer-content-wrap">\
+             <div class="customer-content">\
+             <div class="customer-review">\
+             <h6></h6>\
+         '+sp+'\
+         <div class="customer-rating">'+parseInt(res[i][5])+'</div>\
+         </div>\
+         <br>\
+         <p class="customer-text">'+res[i][3]+'</p>\
+         </div>\
+         </div>\
+         <hr>';
+
+
+            elm.appendChild(div);
+    }
+}
+
 // Display 'Current Schedule' tab on page load
 document.getElementById("defaultOpen").click()
 populateSchedule()
 academicCalendar()
+populateReviews()

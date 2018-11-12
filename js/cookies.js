@@ -71,7 +71,7 @@ function getWorksheet() {
     for (var i = 0; i < ca.length; i++) {
         var storedName = ca[i].split("=")
         // Don't want username
-        if (storedName != "username") {
+        if (storedName != "username" && !storedName.includes("review")) {
             var dept = storedName[0].split(" ")[0]
             var id = storedName[0].split(" ")[1]
             // Go thru all entries in DB, find a department and ID that match our cookie, add to our list
@@ -85,4 +85,43 @@ function getWorksheet() {
     }
 
     return wkst
+}
+
+function addReview(review) {
+    // If course is not already in cookie, add
+    var decodedCookie = decodeURIComponent(document.cookie)
+    var ca = decodedCookie.split("; ")
+    var review_count = 0;
+    for(var i =0; i < ca.length; i++){
+        var storedName = ca[i].split("=")
+        console.log(storedName)
+        if(storedName[0].includes("review")){
+            console.log( storedName[0].split("_"))
+            var c = storedName[0].split("_")[1]
+            console.log(c)
+            if(c == null){
+                console.log("undefined")
+                c = 0
+            }
+            review_count =  parseInt(c) + 1
+        }
+    }
+
+    var name = "review_" + review_count +"=" +review + "; expires=Tue, 01 Jan 2019 00:00:01 GMT"
+    document.cookie = name
+}
+function getReviews() {
+    // Output array of courses from DB in worksheet
+    var reviews = []
+    var decodedCookie = decodeURIComponent(document.cookie)
+    var ca = decodedCookie.split("; ")
+    // Iterate through all cookies
+    for (var i = 0; i < ca.length; i++) {
+        var storedName = ca[i].split("=")
+        // Don't want username
+        if (storedName[0].includes("review")) {
+            reviews.push(storedName[1].split(","))
+        }
+    }
+    return reviews
 }

@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', fillClass, false);
 
+var school, dept, num;
+
 function fillClass() {
     var s = window.location.href
     console.log(s)
@@ -14,14 +16,13 @@ function fillClass() {
 
 
     console.log(title)
-    var school, dept, num;
+
 
     for (var i = 0; i < classesDB.length; i++) {
         // A correct match has its title as a substring
         if (classesDB[i][7] == title) {
             // Matches the school dropdown
             fillDetails(classesDB[i]);
-            console.log(classesDB[i]);
             school = classesDB[i][0]
             dept = classesDB[i][1]
             num = classesDB[i][2]
@@ -40,6 +41,7 @@ function fillClass() {
             count = count + 1
         }
     }
+    fillFromCookies(document.getElementById("reviews"));
 
     var r = " review"
     if(count > 1){
@@ -53,6 +55,7 @@ function fillClass() {
     document.getElementById("rating_detail").innerHTML = rate
     document.getElementById("top_num_reviews").innerHTML = count + r
 
+    setup_popups()
 }
 
 function fillDetails(c) {
@@ -103,21 +106,90 @@ function fillReviews( arr , elm){
 
 
     elm.appendChild(div);
+
 }
 
+function  setup_popups() {
 
-// <div class="customer-rating">8.0</div>
-//     </div>
-//     <p class="customer-text">I love the noodles here but it is so rare that I get to come here. Tasty Hand-Pulled Noodles is the best type of whole in the wall restaurant. The staff are really nice, and you should be seated quickly. I usually get the
-// hand pulled noodles in a soup. House Special #1 is amazing and the lamb noodles are also great. If you want your noodles a little chewier, get the knife cut noodles, which are also amazing. Their dumplings are great
-// dipped in their chili sauce.
-// </p>
-// <p class="customer-text">I love how you can see into the kitchen and watch them make the noodles and you can definitely tell that this is a family run establishment. The prices are are great with one dish maybe being $9. You just have to remember
-// to bring cash.
-// </p>
-//
-// <span>28 people marked this review as helpful</span>
-// <a href="#"><span class="icon-like"></span>Helpful</a>
-// </div>
-// </div>
-// <hr>
+    var modal = document.getElementById('ReviewPopUp');
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("add_review_btn");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks the button, open the modal
+    btn.onclick = function () {
+        console.log("open")
+        modal.style.display = "block";
+    };
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+        modal.style.display = "none";
+    };
+}
+
+function submit_review() {
+    var modal = document.getElementById('ReviewPopUp');
+    var review = document.getElementById("review_input").value
+    var grade = document.getElementById("grade_options").value
+    var rating = document.getElementById("rating_options").value
+
+    var s = school + ","+ dept + ","+ num + ","+review + "," + grade + "," + rating
+
+    addReview(s)
+
+    modal.style.display = "none";
+
+}
+
+function fillFromCookies(elm) {
+    var res = getReviews()
+
+    for( var i = 0; i < res.length; i++){
+
+        if(res[i][0] == school && res[i][1] == dept && res[i][2] == num) {
+
+            var div = document.createElement('div');
+            div.className = 'customer-review_wrap';
+            var course = res
+
+            var sp = '';
+            if (parseInt(res[i][5]) < 3) {
+                for (var j = 0; j < parseInt(res[i][5]); j++) {
+                    sp = sp + '<span class="customer-rating-red"></span>'
+                }
+            } else {
+                for (var j = 0; j < parseInt(res[i][5]); j++) {
+                    sp = sp + '<span></span>'
+                }
+            }
+            for (var j = 0; j < 5 - parseInt(res[i][5]); j++) {
+                sp = sp + '<span class="round-icon-blank"></span>';
+            }
+
+            div.innerHTML =
+                '<div class="customer-img">\
+                <p>Grade Received</p>\
+                <span>' + res[i][4] + '</span>\
+            </div>\
+             <div class="customer-content-wrap">\
+                 <div class="customer-content">\
+                 <div class="customer-review">\
+                 <h6></h6>\
+             ' + sp + '\
+             <div class="customer-rating">' + parseInt(res[i][5]) + '</div>\
+             </div>\
+             <br>\
+             <p class="customer-text">' + res[i][3] + '</p>\
+             </div>\
+             </div>\
+             <hr>';
+
+
+            elm.appendChild(div);
+        }
+    }
+}

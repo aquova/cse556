@@ -8,7 +8,7 @@ These are all things that should be possible to do in one form or another. Since
 
 - [x] Create a full-ish course database to search through
 - [x] Be able to search courses, and filter based on user settings
-- [ ] User should be able to view their own schedule
+- [x] User should be able to view their own schedule
 - [ ] User should be able to add/drop a course, and have that update on their personal schedule
 - [ ] User should be able to view an academic calendar
 - [ ] User should be able to see some graduation requirements

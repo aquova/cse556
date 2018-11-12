@@ -47,7 +47,7 @@ function search() {
     var department = document.getElementById("department").value
 
     window.location = "./listing.html?textBox=" + textBox + "&school=" + school + "&dept=" + department;
-    parse();
+    //parse();
 }
 
 // When the "school" dropdown is changed, the options in the "department" dropdown should change
