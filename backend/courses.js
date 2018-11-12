@@ -92,6 +92,12 @@ var users = [
     ["test", "123"]
 ]
 
+// For each user, just make up some requirements they have/don't have and display them.
+// This probably should be combined with the users array
+var requirements = [
+
+]
+
 var reviews = [
     //school,   dept,   course#,    reviewer,   grade_recieved, rating_val,    comment
     ["ENG",  "CSE",      131,       "Etta James",   "A", 4, "Class was extremely easy. Information is hard, but rewarding. Cytron is the best professor."],

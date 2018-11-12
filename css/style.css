@@ -9,6 +9,10 @@ Author: Surjith S M
 body {
     font-family: 'Roboto', sans-serif; }
 
+h2 {
+    color: white;
+}
+
 h1 {
     font-size: 72px;
     color: #fff;
@@ -1036,6 +1040,7 @@ body {
 .full{
     width: 100%;
 }
+<<<<<<< HEAD
 /* The Modal (background) */
 .modal {
     display: none; /* Hidden by default */
@@ -1074,3 +1079,5 @@ body {
     text-decoration: none;
     cursor: pointer;
 }
+=======
+>>>>>>> 6251e4a60645feb864c60e0abf375827facd72b1

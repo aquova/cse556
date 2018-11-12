@@ -70,11 +70,36 @@ function processCalendarEvents() {
 }
 
 function academicCalendar() {
-    var dp = new DayPilot.Month("ac")
-    dp.theme = "calendar_transparent"
-    dp.eventMoveHandling = "Disabled"
-    dp.eventResizeHandling = "Disabled"
-    dp.init()
+    var ac = new DayPilot.Month("ac")
+    ac.theme = "month_transparent"
+    ac.eventMoveHandling = "Disabled"
+    ac.eventResizeHandling = "Disabled"
+    ac.init()
+    ac.events.list = processAcademicCaledar()
+    document.getElementById("prev-button").addEventListener("click", function() {
+        ac.startDate = ac.startDate.addMonths(-1)
+        ac.update()
+    })
+    document.getElementById("next-button").addEventListener("click", function() {
+        ac.startDate = ac.startDate.addMonths(1)
+        ac.update()
+    })
+    ac.update()
+}
+
+function processAcademicCaledar() {
+    var events = []
+    for (var i = 0; i < holidays.length; i++) {
+        var event = {}
+        event["id"] = i
+        event["text"] = holidays[i][2]
+        event["start"] = holidays[i][0]
+        event["end"] = holidays[i][1]
+
+        events.push(event)
+    }
+
+    return events
 }
 
 function populateReviews(){
@@ -128,4 +153,8 @@ function populateReviews(){
 document.getElementById("defaultOpen").click()
 populateSchedule()
 academicCalendar()
+<<<<<<< HEAD
 populateReviews()
+=======
+document.getElementById("welcome-message").innerHTML = "Welcome " + getUsername() + "!"
+>>>>>>> 6251e4a60645feb864c60e0abf375827facd72b1
