@@ -153,8 +153,5 @@ function populateReviews(){
 document.getElementById("defaultOpen").click()
 populateSchedule()
 academicCalendar()
-<<<<<<< HEAD
 populateReviews()
-=======
 document.getElementById("welcome-message").innerHTML = "Welcome " + getUsername() + "!"
->>>>>>> 6251e4a60645feb864c60e0abf375827facd72b1
