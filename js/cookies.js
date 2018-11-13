@@ -26,20 +26,29 @@ function getUsername() {
     return ""
 }
 
+function findCourseArray(dept, id) {
+    // Go thru all entries in DB, find a department and ID that match our cookie, add to our list
+    for (var j = 0; j < classesDB.length; j++) {
+        if ((dept == classesDB[j][1]) && (id == classesDB[j][2])) {
+            return classesDB[j]
+            break
+        }
+    }
+}
+
+// Adds course to worksheet
 function addCourse(course) {
     // If course is not already in cookie, add
     course = course.split(",")
-    console.log(course)
     if (!checkCourse(course)) {
         var name = course[1] + " " + course[2] + "=true;"
         document.cookie = name
-        console.log(course)
 
     }
 }
 
+// Checks if course is in database
 function checkCourse(course) {
-
     var courseName = course[1] + " " + course[2]
     var decodedCookie = decodeURIComponent(document.cookie)
     var ca = decodedCookie.split("; ")
@@ -62,6 +71,7 @@ function removeCourse(course) {
     }
 }
 
+// Returns array of worksheet courses
 function getWorksheet() {
     // Output array of courses from DB in worksheet
     var wkst = []
@@ -72,19 +82,59 @@ function getWorksheet() {
         var storedName = ca[i].split("=")
         // Don't want username
         if (storedName != "username" && !storedName.includes("review")) {
-            var dept = storedName[0].split(" ")[0]
-            var id = storedName[0].split(" ")[1]
-            // Go thru all entries in DB, find a department and ID that match our cookie, add to our list
-            for (var j = 0; j < classesDB.length; j++) {
-                if ((dept == classesDB[j][1]) && (id == classesDB[j][2])) {
-                    wkst.push(classesDB[j])
-                    break
-                }
+            if (storedName[1] == "true") {
+                var dept = storedName[0].split(" ")[0]
+                var id = storedName[0].split(" ")[1]
+                wkst.push(findCourseArray(dept, id))
             }
         }
     }
 
     return wkst
+}
+
+// Returns array of registered courses
+function getRegistered() {
+    // Output array of courses from DB in worksheet
+    var reg = []
+    var decodedCookie = decodeURIComponent(document.cookie)
+    var ca = decodedCookie.split("; ")
+    // Iterate through all cookies
+    for (var i = 0; i < ca.length; i++) {
+        var storedName = ca[i].split("=")
+        // Don't want username
+        if (storedName != "username" && !storedName.includes("review")) {
+            if (storedName[1] == "false") {
+                var dept = storedName[0].split(" ")[0]
+                var id = storedName[0].split(" ")[1]
+                reg.push(findCourseArray(dept, id))
+            }
+        }
+    }
+
+    return reg
+}
+
+// Registers for courses in worksheet
+function register() {
+    var decodedCookie = decodeURIComponent(document.cookie)
+    var ca = decodedCookie.split("; ")
+
+    for (var i = 0; i < ca.length; i++) {
+        var storedName = ca[i].split("=")
+        if (storedName[1] == "true") {
+            document.cookie = storedName[0] + "=false;"
+        }
+    }
+}
+
+// Drops a course, puts it back on worksheet
+function dropCourse(course) {
+    // If course is in cookie, then change to worksheet
+    if (checkCourse(course)) {
+        var name = course[1] + " " + course[2] + "=true;"
+        document.cookie = name
+    }
 }
 
 function addReview(review) {
@@ -94,13 +144,9 @@ function addReview(review) {
     var review_count = 0;
     for(var i =0; i < ca.length; i++){
         var storedName = ca[i].split("=")
-        console.log(storedName)
         if(storedName[0].includes("review")){
-            console.log( storedName[0].split("_"))
             var c = storedName[0].split("_")[1]
-            console.log(c)
             if(c == null){
-                console.log("undefined")
                 c = 0
             }
             review_count =  parseInt(c) + 1

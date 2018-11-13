@@ -2,14 +2,6 @@
 
 // Tab behavior from here: https://www.w3schools.com/howto/howto_js_tabs.asp
 // Calendar view from here: https://javascript.daypilot.org/open-source/
-document.addEventListener('DOMContentLoaded', disp, false);
-
-function disp() {
-
-    console.log(decodeURIComponent(document.cookie))
-
-}
-
 function openTab(evt, tab) {
     // Declare all variables
     var i, tabcontent, tablinks;
@@ -36,12 +28,13 @@ function populateSchedule() {
     dp.viewType = "Week"
     dp.dayBeginsHour = 8
     dp.dayEndsHour = 18
+    dp.startDate = "2018-11-05"
     dp.theme = "calendar_transparent"
     dp.eventMoveHandling = "Disabled"
     dp.eventResizeHandling = "Disabled"
     dp.init()
     dp.events.list = processCalendarEvents()
-    dp.onEventClicked = function(d) {
+    dp.onEventClicked = function (d) {
         var page = "detail.html?class=" + d.e["data"]["name"]
         window.open(page, '_top')
     }
@@ -49,7 +42,7 @@ function populateSchedule() {
 }
 
 function processCalendarEvents() {
-    var chosen = getWorksheet()
+    var chosen = getRegistered()
     var output = []
 
     // Generates the array of classes, which should be an array of dictionaries
@@ -76,11 +69,11 @@ function academicCalendar() {
     ac.eventResizeHandling = "Disabled"
     ac.init()
     ac.events.list = processAcademicCaledar()
-    document.getElementById("prev-button").addEventListener("click", function() {
+    document.getElementById("prev-button").addEventListener("click", function () {
         ac.startDate = ac.startDate.addMonths(-1)
         ac.update()
     })
-    document.getElementById("next-button").addEventListener("click", function() {
+    document.getElementById("next-button").addEventListener("click", function () {
         ac.startDate = ac.startDate.addMonths(1)
         ac.update()
     })
@@ -102,86 +95,83 @@ function processAcademicCaledar() {
     return events
 }
 
-function populateReviews(){
-    console.log(document.cookie)
+function populateReviews() {
     var res = getReviews()
     var res_2 = getYourReviews()
     var elm = document.getElementById("reviews")
-    for( var i = 0; i < res.length; i++){
-        console.log(res[i])
-            var div = document.createElement('div');
-            div.className = 'customer-review_wrap';
-            var course = res
+    for (var i = 0; i < res.length; i++) {
+        var div = document.createElement('div');
+        div.className = 'customer-review_wrap';
+        var course = res
 
-            var sp ='';
-            if(parseInt(res[i][5]) < 3){
-                for(var j = 0; j< parseInt(res[i][5]); j++){
-                    sp = sp + '<span class="customer-rating-red"></span>'
-                }
-            }else{
-                for(var j = 0; j< parseInt(res[i][5]); j++){
-                    sp = sp + '<span></span>'
-                }
+        var sp = '';
+        if (parseInt(res[i][5]) < 3) {
+            for (var j = 0; j < parseInt(res[i][5]); j++) {
+                sp = sp + '<span class="customer-rating-red"></span>'
             }
-            for(var j = 0; j < 5-parseInt(res[i][5]); j++){
-                sp = sp + '<span class="round-icon-blank"></span>';
+        } else {
+            for (var j = 0; j < parseInt(res[i][5]); j++) {
+                sp = sp + '<span></span>'
             }
+        }
+        for (var j = 0; j < 5 - parseInt(res[i][5]); j++) {
+            sp = sp + '<span class="round-icon-blank"></span>';
+        }
 
-            div.innerHTML =
-                '<div class="customer-img">\
+        div.innerHTML =
+            '<div class="customer-img">\
                 <p>Grade Received</p>\
-                <span>'+res[i][4]+'</span>\
+                <span>'+ res[i][4] + '</span>\
         </div>\
          <div class="customer-content-wrap">\
              <div class="customer-content">\
              <div class="customer-review">\
              <h6></h6>\
-         '+sp+'\
-         <div class="customer-rating">'+parseInt(res[i][5])+'</div>\
+         '+ sp + '\
+         <div class="customer-rating">'+ parseInt(res[i][5]) + '</div>\
          </div>\
          <br>\
-         <p class="customer-text">'+res[i][3]+'</p>\
+         <p class="customer-text">'+ res[i][3] + '</p>\
          </div>\
          </div>\
          <hr>';
 
 
-            elm.appendChild(div);
+        elm.appendChild(div);
     }
-    for( var i = 0; i < res_2.length; i++){
-        console.log(res_2[i])
+    for (var i = 0; i < res_2.length; i++) {
         var div = document.createElement('div');
         div.className = 'customer-review_wrap';
         var course = res_2
 
-        var sp ='';
-        if(parseInt(res_2[i][5]) < 3){
-            for(var j = 0; j< parseInt(res_2[i][5]); j++){
+        var sp = '';
+        if (parseInt(res_2[i][5]) < 3) {
+            for (var j = 0; j < parseInt(res_2[i][5]); j++) {
                 sp = sp + '<span class="customer-rating-red"></span>'
             }
-        }else{
-            for(var j = 0; j< parseInt(res_2[i][5]); j++){
+        } else {
+            for (var j = 0; j < parseInt(res_2[i][5]); j++) {
                 sp = sp + '<span></span>'
             }
         }
-        for(var j = 0; j < 5-parseInt(res_2[i][5]); j++){
+        for (var j = 0; j < 5 - parseInt(res_2[i][5]); j++) {
             sp = sp + '<span class="round-icon-blank"></span>';
         }
 
         div.innerHTML =
             '<div class="customer-img">\
             <p>Grade Received</p>\
-            <span>'+res_2[i][4]+'</span>\
+            <span>'+ res_2[i][4] + '</span>\
         </div>\
          <div class="customer-content-wrap">\
              <div class="customer-content">\
              <div class="customer-review">\
              <h6></h6>\
-         '+sp+'\
-         <div class="customer-rating">'+parseInt(res_2[i][5])+'</div>\
+         '+ sp + '\
+         <div class="customer-rating">'+ parseInt(res_2[i][5]) + '</div>\
          </div>\
          <br>\
-         <p class="customer-text">'+res_2[i][3]+'</p>\
+         <p class="customer-text">'+ res_2[i][3] + '</p>\
          </div>\
          </div>\
          <hr>';
@@ -191,12 +181,12 @@ function populateReviews(){
     }
 
 }
-function getYourReviews(){
+function getYourReviews() {
     var r = []
     var user = getUsername()
-    for(var i = 0; i < reviews.length; i++){
+    for (var i = 0; i < reviews.length; i++) {
         var sub_r = []
-        if(reviews[i][3] == user){
+        if (reviews[i][3] == user) {
             sub_r.push(reviews[i][0])
             sub_r.push(reviews[i][1])
             sub_r.push(reviews[i][2])
@@ -204,31 +194,30 @@ function getYourReviews(){
             sub_r.push(reviews[i][4])
             sub_r.push(reviews[i][5])
             r.push(sub_r)
-            console.log(sub_r)
         }
     }
     return r
 }
 
-function populateRequirements(){
+function populateRequirements() {
     var el = document.getElementById("requirements")
 
     var user = getUsername()
     var d = document.createElement('div');
     var inhtml = '';
-    for(var i = 0; i <requirements.length; i++){
-       if(requirements[i][0] == user) {
-           inhtml = inhtml + '<hr><h5>Fulfilled Requirements</h5>'
-           for (var j = 0; j < requirements[i][1].length; j++) {
-                inhtml = inhtml + '<input type="checkbox" onclick="return false;" checked/>     '+requirements[i][1][j]+'<br>'
-           }
-           inhtml = inhtml + '<hr><h5>Requirements Left to Fulfill</h5>'
-           for (var j = 0; j < requirements[i][2].length; j++) {
-               inhtml = inhtml + '<input type="checkbox" onclick="return false;"/>      '+requirements[i][1][j]+'<br>'
-           }
-       }
-   }
-   d.innerHTML = inhtml
+    for (var i = 0; i < requirements.length; i++) {
+        if (requirements[i][0] == user) {
+            inhtml = inhtml + '<hr><h5>Fulfilled Requirements</h5>'
+            for (var j = 0; j < requirements[i][1].length; j++) {
+                inhtml = inhtml + '<input type="checkbox" onclick="return false;" checked/>     ' + requirements[i][1][j] + '<br>'
+            }
+            inhtml = inhtml + '<hr><h5>Requirements Left to Fulfill</h5>'
+            for (var j = 0; j < requirements[i][2].length; j++) {
+                inhtml = inhtml + '<input type="checkbox" onclick="return false;"/>      ' + requirements[i][1][j] + '<br>'
+            }
+        }
+    }
+    d.innerHTML = inhtml
     el.appendChild(d);
 }
 

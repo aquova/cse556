@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', displayCourses, false);
+document.getElementById("enroll-button").addEventListener("click", completeRegistration, false)
 
 function displayCourses() {
     var courseList = document.getElementById("enrolled")
@@ -34,4 +35,7 @@ function displayCourses() {
     }
 }
 
-//displayCourses()
+function completeRegistration() {
+    register()
+    displayCourses()
+}

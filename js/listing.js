@@ -94,24 +94,15 @@ function buildListing(elm, arr) {
         '<span class="featured-rating-orange ">6.5</span>\
         <a href="detail.html?class='+arr[7]+'">\
         <div class="featured-title-box">\
-        <h6>'+arr[0] + ' '+ arr[1]+ ' '+ arr[2]+': '+ arr[7] +'</h6></a>\
-        <p>'+arr[6]+' </p> <span>• </span>\
-        <p>Reviews</p> <span> • </span>\
-        <p><span>$$$</span>$$</p>\
+        <h6>'+ arr[1]+ ' '+ arr[2]+': '+ arr[7] +'</h6></a>\
+        <p>'+arr[6]+' </p>\
         <ul><li><span class="icon-location-pin"></span>\
-        <p>'+arr[5] + ' '+arr[3]+'-'+arr[4] +'</p></li>\
+        <p>'+arr[5] + ' '+ twentyfour2ampm(arr[3])+'-'+ twentyfour2ampm(arr[4]) +'</p></li>\
         <p>'+arr[9]+'</p></li>\
-        <li><span class="icon-link"></span> <p>'+arr[8]+'</p></li>\
         </ul>\
-        <div class="bottom-icons">\
-        <span class="fa fa-plus" id="'+arr+'" onclick="addCourse(this.id)"></span>\
-        <span class="ti-heart" id="'+arr[7]+'" onclick="likeclass(this)"></span>\
          </div>';
 
-
     elm.appendChild(div);
-
-
 }
 
 function likeclass(elem) {
