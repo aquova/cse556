@@ -4,19 +4,12 @@ var school, dept, num;
 
 function fillClass() {
     var s = window.location.href
-    console.log(s)
     s = s.split("?")[1]
-    console.log(s)
     var title = s.split("=")[1]
-    console.log(title)
     var c = title.split("%20").length
     for(var i = 0; i< c ; i++){
         title = title.replace("%20"," ")
     }
-
-
-    console.log(title)
-
 
     for (var i = 0; i < classesDB.length; i++) {
         // A correct match has its title as a substring
@@ -37,7 +30,6 @@ function fillClass() {
         if (reviews[i][0] == school && reviews[i][1] == dept && reviews[i][2] == num){
             fillReviews(reviews[i], document.getElementById("reviews"))
             sum = sum + parseInt(reviews[i][5])
-            console.log(sum)
             count = count + 1
         }
     }
@@ -49,7 +41,6 @@ function fillClass() {
     }
 
     var rate = (sum/count).toFixed(2);
-    console.log(rate)
 
     document.getElementById("num_reviews").innerHTML = count + r
     document.getElementById("rating_detail").innerHTML = rate
@@ -121,7 +112,6 @@ function  setup_popups() {
 
     // When the user clicks the button, open the modal
     btn.onclick = function () {
-        console.log("open")
         modal.style.display = "block";
     };
 
@@ -192,5 +182,28 @@ function fillFromCookies(elm) {
             elm.appendChild(div);
         }
     }
+}
+
+function selectCourse(btn, id) {
+    addCourse(id)
+
+    // TODO: Trying to modify button on page so it updates when course is added
+    // This doesn't work yet
+    // var details = id.split(",")
+    // var c = findCourseArray(details[1], details[2])
+
+    // var wkst = getWorksheet()
+    // var reg = getRegistered()
+
+    // if (wkst.includes(c)) {
+    //     removeCourse(id)
+    //     btn.innerHTML = "ADD COURSE"
+    // } else if (reg.includes(c)) {
+    //     dropCourse(id)
+    //     btn.innerHTML = "ADD COURSE"
+    // } else {
+    //     addCourse(id)
+    //     btn.innerHTML = "REMOVE COURSE"
+    // }
 }
 
