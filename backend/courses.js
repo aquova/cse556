@@ -90,7 +90,7 @@ var deptMap = {
 
 var users = [
     ["betty", "123"],
-    ["davew", "123"],
+    ["dave", "123"],
     ["seth", "123"]
 ]
 
@@ -98,7 +98,7 @@ var users = [
 // This probably should be combined with the users array
 var requirements = {
     //student: [[done array], [need to finish array], [current schedule]]
-    "davew":
+    "dave":
         [["6 units of Humanities", "6 units of Social Sciences", "3 units of upper level Humanities/Social Sciences", "CSE 131", "CSE 132","CSE 240", "ESE 318", "MTH 131", "MTH 132", "MTH 233", "Technical Writing", "4 units of Natural Sciences"],["CSE 347", "MTH 326", "At least one S course", "At least one M or A course", "Total 120 credits"], ["CSE 247", "CSE 332"]],
     "betty":
         [["CHEM 111", "CHEM 112", "MATH 132", "MATH 233", "BIO 2960"], ["6 units of Bio electives", "CHEM 152", "English Comp", "3 units of upper level Humanities"], ["BIO 2961", "BIO 303"]],
