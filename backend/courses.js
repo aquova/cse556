@@ -89,17 +89,21 @@ var deptMap = {
 }
 
 var users = [
-    ["test", "123"],
-    ["eng_student", "123"]
+    ["betty", "123"],
+    ["davew", "123"],
+    ["seth", "123"]
 ]
 
 // For each user, just make up some requirements they have/don't have and display them.
 // This probably should be combined with the users array
 var requirements = {
     //student: [[done array], [need to finish array], [current schedule]]
-    "eng_student":
-        [["6 units of Humanities", "6 units of Social Sciences", "3 units of upper level Humanities/Social Sciences", "CSE 131", "CSE 132","CSE 240", "CSE 247", "CSE 332", "ESE 318", "MTH 131", "MTH 132", "MTH 233", "Technical Writing", "4 units of Natural Sciences"],
-        ["CSE 347", "MTH 326", "At least one S course", "At least one M or A course", "Total 120 credits"]],
+    "davew":
+        [["6 units of Humanities", "6 units of Social Sciences", "3 units of upper level Humanities/Social Sciences", "CSE 131", "CSE 132","CSE 240", "ESE 318", "MTH 131", "MTH 132", "MTH 233", "Technical Writing", "4 units of Natural Sciences"],["CSE 347", "MTH 326", "At least one S course", "At least one M or A course", "Total 120 credits"], ["CSE 247", "CSE 332"]],
+    "betty":
+        [["CHEM 111", "CHEM 112", "MATH 132", "MATH 233", "BIO 2960"], ["6 units of Bio electives", "CHEM 152", "English Comp", "3 units of upper level Humanities"], ["BIO 2961", "BIO 303"]],
+    "seth":
+        [["LAW 500", "LAW 501"], ["LAW 502", "LAW 506", "100 hours of courtroom observation", "6 units of Social Sciences", "9 units of upper level Humanities"], ["LAW 502", "LAW 506", "LAW 503", "LAW 523"]]
 }
 
 var reviews = [
