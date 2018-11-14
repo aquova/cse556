@@ -3,6 +3,14 @@
 // Username shall be stored verbatim, courses will be stored as "DEPARTMENT COURSE#"
 
 // Cookie functions adapted from here: https://www.w3schools.com/js/js_cookies.asp
+function clearCookies() {
+    // If a cookie is set to a past date, it is automatically destroyed
+    var decodedCookie = decodeURIComponent(document.cookie)
+    var ca = decodedCookie.split(';')
+    for (var i =0; i < ca.length; i++) {
+        document.cookie = ca[i] + " expires=Thu, 01 Jan 1970 00:00:00 UTC;"
+    }
+}
 
 function setUsername(name) {
     document.cookie = "username=" + name + "; expires=Tue, 01 Jan 2019 00:00:01 GMT"

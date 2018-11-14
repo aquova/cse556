@@ -1,9 +1,7 @@
 function sign_user_in() {
+    clearCookies()
     var user = document.getElementById("username").value
     var pass = document.getElementById("password").value
-
-    console.log(user)
-    console.log(pass)
 
     for(var i = 0; i < users.length; i++){
         if(users[i][0] == user){
