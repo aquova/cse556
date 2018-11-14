@@ -33,7 +33,9 @@ function fillClass() {
             count = count + 1
         }
     }
-    fillFromCookies(document.getElementById("reviews"));
+    var foo = fillFromCookies(document.getElementById("reviews"), sum, count);
+    sum = foo[0]
+    count = foo[1]
 
     var r = " review"
     if(count > 1){
@@ -136,7 +138,7 @@ function submit_review() {
 
 }
 
-function fillFromCookies(elm) {
+function fillFromCookies(elm, sum, count) {
     var res = getReviews()
 
     for( var i = 0; i < res.length; i++){
@@ -181,8 +183,11 @@ function fillFromCookies(elm) {
 
 
             elm.appendChild(div);
+            count += 1
+            sum += parseInt(res[i][5])
         }
     }
+    return [sum, count]
 }
 
 function selectCourse(btn, id) {

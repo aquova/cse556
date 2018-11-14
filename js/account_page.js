@@ -216,17 +216,6 @@ function populateRequirements() {
     d.innerHTML = inhtml
     el.appendChild(d);
 
-    // Populate schedule
-    for (var j = 0; j < requirements[user][2].length; j++) {
-        var title = requirements[user][2][j].split(" ")
-        var c = findCourseArray(title[0], title[1])
-        addCourse(c)
-    }
-
-    // Don't tell Kelleher I did this
-    if (getUsername() != "seth") {
-        register()
-    }
 }
 
 // Display 'Current Schedule' tab on page load
