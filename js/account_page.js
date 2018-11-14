@@ -205,17 +205,13 @@ function populateRequirements() {
     var user = getUsername()
     var d = document.createElement('div');
     var inhtml = '';
-    for (var i = 0; i < requirements.length; i++) {
-        if (requirements[i][0] == user) {
-            inhtml = inhtml + '<hr><h5>Fulfilled Requirements</h5>'
-            for (var j = 0; j < requirements[i][1].length; j++) {
-                inhtml = inhtml + '<input type="checkbox" onclick="return false;" checked/>     ' + requirements[i][1][j] + '<br>'
-            }
-            inhtml = inhtml + '<hr><h5>Requirements Left to Fulfill</h5>'
-            for (var j = 0; j < requirements[i][2].length; j++) {
-                inhtml = inhtml + '<input type="checkbox" onclick="return false;"/>      ' + requirements[i][1][j] + '<br>'
-            }
-        }
+    inhtml = inhtml + '<hr><h5>Fulfilled Requirements</h5>'
+    for (var j = 0; j < requirements[user][0].length; j++) {
+        inhtml = inhtml + '<input type="checkbox" onclick="return false;" checked/>     ' + requirements[user][0][j] + '<br>'
+    }
+    inhtml = inhtml + '<hr><h5>Requirements Left to Fulfill</h5>'
+    for (var j = 0; j < requirements[user][1].length; j++) {
+        inhtml = inhtml + '<input type="checkbox" onclick="return false;"/>      ' + requirements[user][1][j] + '<br>'
     }
     d.innerHTML = inhtml
     el.appendChild(d);

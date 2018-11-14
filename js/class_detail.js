@@ -197,6 +197,7 @@ function selectCourse(btn, id) {
         btn.innerHTML = "ADD TO WISHLIST"
     } else if (reg.indexOf(c) > -1) {
         dropCourse(c)
+        alert("You have just dropped " + c[1] + " " + c[2] + ". It has been placed into your worksheet.")
         btn.innerHTML = "ADD TO WISHLIST"
     } else {
         addCourse(c)
