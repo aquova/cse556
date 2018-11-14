@@ -102,11 +102,12 @@ function buildListing(elm, arr) {
     div.className = 'featured-place-wrap full';
     var course = arr
 
-    if( count == 0){
-        count = 5;
+    if( sum == 0){
+        sum = 1;
+        count =1;
     }
     div.innerHTML =
-        '<span class="featured-rating-orange ">'+count+'</span>\
+        '<span class="featured-rating-orange ">'+sum/count+'</span>\
         <a href="detail.html?class='+arr[7]+'">\
         <div class="featured-title-box">\
         <h6>'+ arr[1]+ ' '+ arr[2]+': '+ arr[7] +'</h6></a>\
