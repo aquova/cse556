@@ -50,6 +50,7 @@ function fillClass() {
 }
 
 function fillDetails(c) {
+    document.getElementById("course").innerHTML = setBtnLabel(c)
     document.getElementById("course").id = c
     document.getElementById("class_number").innerHTML = c[7]
     document.getElementById("class_title").innerHTML = c[0] + " " + c[1] + " " + c[2]
@@ -185,25 +186,33 @@ function fillFromCookies(elm) {
 }
 
 function selectCourse(btn, id) {
-    addCourse(id)
+    var details = id.split(",")
+    var c = findCourseArray(details[1], details[2])
 
-    // TODO: Trying to modify button on page so it updates when course is added
-    // This doesn't work yet
-    // var details = id.split(",")
-    // var c = findCourseArray(details[1], details[2])
+    var wkst = getWorksheet()
+    var reg = getRegistered()
 
-    // var wkst = getWorksheet()
-    // var reg = getRegistered()
-
-    // if (wkst.includes(c)) {
-    //     removeCourse(id)
-    //     btn.innerHTML = "ADD COURSE"
-    // } else if (reg.includes(c)) {
-    //     dropCourse(id)
-    //     btn.innerHTML = "ADD COURSE"
-    // } else {
-    //     addCourse(id)
-    //     btn.innerHTML = "REMOVE COURSE"
-    // }
+    if (wkst.indexOf(c) > -1) {
+        removeCourse(c)
+        btn.innerHTML = "ADD TO WISHLIST"
+    } else if (reg.indexOf(c) > -1) {
+        dropCourse(c)
+        btn.innerHTML = "ADD TO WISHLIST"
+    } else {
+        addCourse(c)
+        btn.innerHTML = "REMOVE COURSE"
+    }
 }
 
+function setBtnLabel(c) {
+    var wkst = getWorksheet()
+    var reg = getRegistered()
+
+    if (wkst.indexOf(c) > -1) {
+        return "REMOVE FROM WISHLIST"
+    } else if (reg.indexOf(c) > -1) {
+        return "DROP COURSE"
+    }
+
+    return "ADD TO WISHLIST"
+}

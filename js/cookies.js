@@ -39,11 +39,9 @@ function findCourseArray(dept, id) {
 // Adds course to worksheet
 function addCourse(course) {
     // If course is not already in cookie, add
-    course = course.split(",")
     if (!checkCourse(course)) {
         var name = course[1] + " " + course[2] + "=true;"
         document.cookie = name
-
     }
 }
 
