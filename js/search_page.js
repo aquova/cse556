@@ -17,7 +17,10 @@ function showResults(matches) {
         results.removeChild(results.firstChild);
     }
 
+
     for (var i = 0; i < matches.length; i++) {
+
+
         var res = document.createElement("div")
         res.classList.add("course")
         var name = document.createElement("p")

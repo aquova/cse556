@@ -85,13 +85,28 @@ function parse() {
 
 function buildListing(elm, arr) {
 
+    var count = 0;
+    var sum = 0;
+    console.log(arr)
+    for(var i = 0; i<reviews.length; i++){
+        if (reviews[i][0] == arr[0] && reviews[i][1] == arr[1] && reviews[i][2] == arr[2]){
+            sum = sum + parseInt(reviews[i][5])
+            count = count + 1
+        }
+    }
+    console.log(count)
+
     var div = document.createElement('div');
     div.id = arr[7];
 
     div.className = 'featured-place-wrap full';
     var course = arr
+
+    if( count == 0){
+        count = 5;
+    }
     div.innerHTML =
-        '<span class="featured-rating-orange ">6.5</span>\
+        '<span class="featured-rating-orange ">'+count+'</span>\
         <a href="detail.html?class='+arr[7]+'">\
         <div class="featured-title-box">\
         <h6>'+ arr[1]+ ' '+ arr[2]+': '+ arr[7] +'</h6></a>\
