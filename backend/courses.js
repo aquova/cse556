@@ -161,7 +161,9 @@ var deptMap = {
 var users = [
     ["betty", "123"],
     ["dave", "123"],
-    ["seth", "123"]
+    ["seth", "123"],
+    ["sal", "123"],
+    ["frank", "123"]
 ]
 
 // For each user, just make up some requirements they have/don't have and display them.
@@ -173,8 +175,13 @@ var requirements = {
     "betty":
         [["CHEM 111", "CHEM 112", "MATH 132", "MATH 233", "BIO 2960"], ["6 units of Bio electives", "CHEM 152", "English Comp", "3 units of upper level Humanities"], ["BIO 2961", "CHEM 402"]],
     "seth":
-        [["LAW 500", "LAW 501"], ["LAW 502", "LAW 506", "100 hours of courtroom observation", "6 units of Social Sciences", "9 units of upper level Humanities"], ["LAW 502", "LAW 506", "LAW 503", "LAW 523"]]
-}
+        [["LAW 500", "LAW 501"], ["LAW 502", "LAW 506", "100 hours of courtroom observation", "6 units of Social Sciences", "9 units of upper level Humanities"], ["LAW 502", "LAW 506", "LAW 503", "LAW 523"]],
+    "sal":
+        [["6 units of Humanities", "6 units of Social Sciences", "3 units of upper level Humanities/Social Sciences", "CSE 131", "CSE 132","CSE 240", "ESE 318", "MTH 131", "MTH 132", "MTH 233", "Technical Writing", "4 units of Natural Sciences"],["CSE 347", "MTH 326", "At least one S course", "At least one M or A course", "Total 120 credits"], ["CSE 247", "CSE 332"]],
+    "frank":
+        [["CHEM 111", "CHEM 112", "MATH 132", "MATH 233", "BIO 2960"], ["6 units of Bio electives", "CHEM 152", "English Comp", "3 units of upper level Humanities"], ["BIO 2961", "CHEM 402"]]
+
+    }
 
 var reviews = [
     //school,   dept,   course#,    reviewer,   grade_recieved, rating_val,    comment

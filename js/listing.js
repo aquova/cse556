@@ -39,48 +39,199 @@ function parse() {
         list.removeChild(list.firstChild);
     }
 
-    var count = 0;
-    for (var i = 0; i < classesDB.length; i++) {
-        // A correct match has its title as a substring
-        if (classesDB[i][7].toLowerCase().includes(textBox)) {
-            // Matches the school dropdown
-            if ((classesDB[i][0] == school) || (school == "ALL")) {
-                // Matches the department dropdown
-                if ((classesDB[i][1] == department) || (department == "ALL")){
-                    // Add classes based on checked options
-                    // For some stupid reason ArtSci has classes in the thousands
-                    if (undergradBox.checked && (classesDB[i][2] < 500 || (1000 <= classesDB[i][2] && classesDB[i][2] < 5000))) {
-                        if (checkWeekday(classesDB[i][5])) {
-                            buildListing(list, classesDB[i])
-                            count += 1
+    var user = getUsername();
+
+    if(user == "sal"){
+        console.log("sal")
+        //use crossDepart
+        var count = 0;
+        if(document.getElementById("requirements_check").checked){
+            console.log("checked")
+            for (var i = 0; i < crossDepart.length; i++) {
+                // A correct match has its title as a substring
+                if (crossDepart[i][7].toLowerCase().includes(textBox)) {
+                    // Matches the school dropdown
+                    if ((crossDepart[i][0] == school) || (school == "ALL")) {
+                        // Matches the department dropdown
+                        if ((crossDepart[i][1] == department) || (department == "ALL")){
+                            // Add classes based on checked options
+                            // For some stupid reason ArtSci has classes in the thousands
+                            if (undergradBox.checked && (crossDepart[i][2] < 500 || (1000 <= crossDepart[i][2] && crossDepart[i][2] < 5000))) {
+                                if (checkWeekday(crossDepart[i][5])) {
+                                    buildListing(list, crossDepart[i])
+                                    count += 1
+                                }
+                            } else if (gradBox.checked && (5000 <= crossDepart[i][2] || (500 <= crossDepart[i][2] && crossDepart[i][2] < 1000))) {
+                                if (checkWeekday(crossDepart[i][5])) {
+                                    buildListing(list, crossDepart[i])
+                                    count += 1
+                                }
+                            }
+                            else if(crossDepart[i][9].includes(textBox)){
+                                buildListing(list, crossDepart[i])
+                                count += 1
+                            }else{
+                                buildListing(list, crossDepart[i])
+                                count += 1
+                            }
                         }
-                    } else if (gradBox.checked && (5000 <= classesDB[i][2] || (500 <= classesDB[i][2] && classesDB[i][2] < 1000))) {
-                        if (checkWeekday(classesDB[i][5])) {
-                            buildListing(list, classesDB[i])
-                            count += 1
+                    }
+                }
+            }
+        }else{
+            console.log("unchecked")
+            count = 0;
+            for (var i = 0; i < classesDB.length; i++) {
+                // A correct match has its title as a substring
+                if (classesDB[i][7].toLowerCase().includes(textBox)) {
+                    // Matches the school dropdown
+                    if ((classesDB[i][0] == school) || (school == "ALL")) {
+                        // Matches the department dropdown
+                        if ((classesDB[i][1] == department) || (department == "ALL")){
+                            // Add classes based on checked options
+                            // For some stupid reason ArtSci has classes in the thousands
+                            if (undergradBox.checked && (classesDB[i][2] < 500 || (1000 <= classesDB[i][2] && classesDB[i][2] < 5000))) {
+                                if (checkWeekday(classesDB[i][5])) {
+                                    buildListing(list, classesDB[i])
+                                    count += 1
+                                }
+                            } else if (gradBox.checked && (5000 <= classesDB[i][2] || (500 <= classesDB[i][2] && classesDB[i][2] < 1000))) {
+                                if (checkWeekday(classesDB[i][5])) {
+                                    buildListing(list, classesDB[i])
+                                    count += 1
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+        document.getElementById("search_count").innerHTML = count + " search results"
+        var res = ""
+        console.log(textBox.length)
+        
+        document.getElementById("search_field").innerHTML = res
+        
+
+    }
+    else if(user == "frank"){
+
+        // use allMusic
+        console.log(textBox.length != 0)
+        var count = 0;
+        if(textBox.length != 0){
+            for (var i = 0; i < allMusic.length; i++) {
+                // A correct match has its title as a substring
+                if (allMusic[i][7].toLowerCase().includes(textBox)) {
+                    // Matches the school dropdown
+                    if ((allMusic[i][0] == school) || (school == "ALL")) {
+                        // Matches the department dropdown
+                        if ((allMusic[i][1] == department) || (department == "ALL")){
+                            // Add classes based on checked options
+                            // For some stupid reason ArtSci has classes in the thousands
+                            if (undergradBox.checked && (allMusic[i][2] < 500 || (1000 <= allMusic[i][2] && allMusic[i][2] < 5000))) {
+                                if (checkWeekday(allMusic[i][5])) {
+                                    buildListing(list, allMusic[i])
+                                    count += 1
+                                }
+                            } else if (gradBox.checked && (5000 <= allMusic[i][2] || (500 <= allMusic[i][2] && allMusic[i][2] < 1000))) {
+                                if (checkWeekday(allMusic[i][5])) {
+                                    buildListing(list, allMusic[i])
+                                    count += 1
+                                }
+                            }else if(allMusic[i][9].includes(textBox)){
+                                buildListing(list, allMusic[i])
+                                count += 1
+                            }
+                            
+                        }
+                    }
+                }
+            }
+        }else{
+            console.log("couldn't find")
+            count = 0;
+            for (var i = 0; i < classesDB.length; i++) {
+                // A correct match has its title as a substring
+                if (classesDB[i][7].toLowerCase().includes(textBox)) {
+                    // Matches the school dropdown
+                    if ((classesDB[i][0] == school) || (school == "ALL")) {
+                        // Matches the department dropdown
+                        if ((classesDB[i][1] == department) || (department == "ALL")){
+                            // Add classes based on checked options
+                            // For some stupid reason ArtSci has classes in the thousands
+                            if (undergradBox.checked && (classesDB[i][2] < 500 || (1000 <= classesDB[i][2] && classesDB[i][2] < 5000))) {
+                                if (checkWeekday(classesDB[i][5])) {
+                                    buildListing(list, classesDB[i])
+                                    count += 1
+                                }
+                            } else if (gradBox.checked && (5000 <= classesDB[i][2] || (500 <= classesDB[i][2] && classesDB[i][2] < 1000))) {
+                                if (checkWeekday(classesDB[i][5])) {
+                                    buildListing(list, classesDB[i])
+                                    count += 1
+                                }
+                            } else if(classesDB[i][9].includes(textBox)){
+                                buildListing(list, classesDB[i])
+                                count += 1
+                            } 
                         }
                     }
                 }
             }
         }
-    }
-    document.getElementById("search_count").innerHTML = count + " search results"
-    var res = ""
-    console.log(textBox.length)
-    if(textBox === undefined || textBox.length == 0) {
-        res = "ALL CLASSES"
-    }else {
-        console.log(textBox)
-        res = textBox;
-        if (department.length > 0) {
-            res = res + " in " + department
-        }
-        if (school.length > 0) {
-            res = res + " at " + school
-        }
-    }
+        document.getElementById("search_count").innerHTML = count + " search results"
+        var res = ""
+        console.log(textBox.length)
+        
+        document.getElementById("search_field").innerHTML = res
 
-    document.getElementById("search_field").innerHTML = res
+
+    }else{
+
+
+        var count = 0;
+        for (var i = 0; i < classesDB.length; i++) {
+            // A correct match has its title as a substring
+            if (classesDB[i][7].toLowerCase().includes(textBox)) {
+                // Matches the school dropdown
+                if ((classesDB[i][0] == school) || (school == "ALL")) {
+                    // Matches the department dropdown
+                    if ((classesDB[i][1] == department) || (department == "ALL")){
+                        // Add classes based on checked options
+                        // For some stupid reason ArtSci has classes in the thousands
+                        if (undergradBox.checked && (classesDB[i][2] < 500 || (1000 <= classesDB[i][2] && classesDB[i][2] < 5000))) {
+                            if (checkWeekday(classesDB[i][5])) {
+                                buildListing(list, classesDB[i])
+                                count += 1
+                            }
+                        } else if (gradBox.checked && (5000 <= classesDB[i][2] || (500 <= classesDB[i][2] && classesDB[i][2] < 1000))) {
+                            if (checkWeekday(classesDB[i][5])) {
+                                buildListing(list, classesDB[i])
+                                count += 1
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        document.getElementById("search_count").innerHTML = count + " search results"
+        var res = ""
+        console.log(textBox.length)
+        if(textBox === undefined || textBox.length == 0) {
+            res = "ALL CLASSES"
+        }else {
+            console.log(textBox)
+            res = textBox;
+            if (department.length > 0) {
+                res = res + " in " + department
+            }
+            if (school.length > 0) {
+                res = res + " at " + school
+            }
+        }
+        document.getElementById("search_field").innerHTML = res
+    }
 }
 
 function buildListing(elm, arr) {
