@@ -220,7 +220,6 @@ function populateRequirements() {
 }
 
 function showClassPopUp(class_name, dp, d){
-    console.log(class_name)
     var modal = document.getElementById('ClassPopUp');
 
     var class_id = document.getElementById("class_title");
@@ -233,7 +232,6 @@ function showClassPopUp(class_name, dp, d){
     for (var i = 0; i < classesDB.length; i++) {
         if (classesDB[i][7].toLowerCase().includes(class_name.toLowerCase())) {
             c = classesDB[i];
-            console.log(c)
         }
     }
 
@@ -247,13 +245,10 @@ function showClassPopUp(class_name, dp, d){
     //     }
     // }
 
-    // rating.innerHTML = sum/count;
     time_slot.innerHTML = c[5] + ' '+ twentyfour2ampm(c[3])+'-'+ twentyfour2ampm(c[4])
 
-    var course = [c[1], c[2]];
-
     document.getElementById("doDrop").onclick = function(){
-        dropCoursePop(course, dp, d);
+        dropCoursePop(c, dp, d);
     }
     modal.style.display = "block";
 }
@@ -320,14 +315,12 @@ function dropCoursePop(course, cal, event){
 
     var user_req = requirements[user];
 
-    var c = course[0] + " " + course[1]
-    console.log(c)
+    var c = course[1] + " " + course[2]
     for(var i = 0; i < user_req[2].length; i ++){
         if(user_req[2][i] == (c)){
-            console.log("slice")
             user_req[2].splice(i,1)
         }
-    }    
+    }
 
     for(var i = 0; i < cal.events.list.length; i++){
         if( cal.events.list[i].text == c){
