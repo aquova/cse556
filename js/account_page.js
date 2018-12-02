@@ -250,6 +250,10 @@ function showClassPopUp(class_name, dp, d){
     document.getElementById("doDrop").onclick = function(){
         dropCoursePop(c, dp, d);
     }
+
+    document.getElementById("add_review").onclick = function() {
+        submit_review(c)
+    }
     modal.style.display = "block";
 }
 
@@ -262,18 +266,19 @@ function showReviewChunk() {
     }
 }
 
-function submit_review() {
+function submit_review(c) {
     var modal = document.getElementById('review_section');
     var review = document.getElementById("review_input").value
     var grade = document.getElementById("grade_options").value
     var rating = document.getElementById("rating_options").value
 
-    var s = school + ","+ dept + ","+ num + ","+review + "," + grade + "," + rating
-
+    var s = c[0] + ","+ c[1] + ","+ c[2] + ","+ review + "," + grade + "," + rating
     addReview(s)
+    populateReviews()
 
     modal.style.display = "none";
-
+    document.getElementById('ClassPopUp').style.display = "none"
+    document.getElementById("reviews").reload()
 }
 
 function  setup_popups() {
