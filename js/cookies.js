@@ -8,7 +8,7 @@ function clearCookies() {
     var decodedCookie = decodeURIComponent(document.cookie)
     var ca = decodedCookie.split(';')
     for (var i =0; i < ca.length; i++) {
-        document.cookie = ca[i] + " expires=Thu, 01 Jan 1970 00:00:00 UTC;"
+        document.cookie = ca[i] + "; expires=Thu, 01 Jan 1970 00:00:00 UTC;"
     }
 }
 
@@ -18,6 +18,7 @@ function signOut(){
 }
 
 function setUsername(name) {
+    console.log("set " + name)
     document.cookie = "username=" + name + "; expires=Tue, 01 Jan 2019 00:00:01 GMT"
     window.location = "pages/account.html"
 
@@ -31,11 +32,13 @@ function goBack(){
 }
 
 function getUsername() {
+    
     var name = "username="
     var decodedCookie = decodeURIComponent(document.cookie)
     var ca = decodedCookie.split(';')
     for(var i = 0; i < ca.length; i++) {
         var c = ca[i]
+        console.log(c)
         while (c.charAt(0) == ' ') {
             c = c.substring(1)
         }
@@ -43,6 +46,7 @@ function getUsername() {
             return c.substring(name.length, c.length)
         }
     }
+    
     return ""
 }
 
@@ -128,6 +132,7 @@ function getRegistered() {
                 var dept = storedName[0].split(" ")[0]
                 var id = storedName[0].split(" ")[1]
                 reg.push(findCourseArray(dept, id))
+                
             }
         }
     }
