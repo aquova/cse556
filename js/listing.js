@@ -34,7 +34,8 @@ function parse() {
     var params = s.split("&")
     var textBox = params[0].split("=")[1]
     var school = params[1].split("=")[1]
-    var department = params[2].split("=")[1]
+    var department = params[2].split("=")[1].split(",")[1].replace("%20", '')
+    console.log(department)
     var list = document.getElementById('listing');
     while (list.firstChild) {
         list.removeChild(list.firstChild);
@@ -256,6 +257,7 @@ function buildListing(elm, arr) {
         sum = 1;
         count =1;
     }
+
     div.innerHTML =
         '<span class="featured-rating-orange ">'+sum/count+'</span>\
         <a href="detail.html?class='+arr[7]+'">\

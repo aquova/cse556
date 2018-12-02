@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', displayCourses, false);
-document.getElementById("enroll-button").addEventListener("click", completeRegistration, false)
+document.getElementById("registerForClasses").addEventListener("click", completeRegistration, false)
 
 function displayCourses() {
     setBackDestination()
@@ -34,9 +34,37 @@ function displayCourses() {
 
         courseList.appendChild(res)
     }
+
+    setup_popups()
 }
 
 function completeRegistration() {
+    console.log("reg")
     register()
     displayCourses()
+    var modal = document.getElementById('RegisterForClassesPopUp');
+    modal.style.display = "none"
+    
+}
+
+function  setup_popups() {
+
+
+    var modal = document.getElementById('RegisterForClassesPopUp');
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("enroll-button");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementById("dontRegisterForClasses");
+
+    // When the user clicks the button, open the modal
+    btn.onclick = function () {
+        modal.style.display = "block";
+    };
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+        modal.style.display = "none";
+    };
 }
