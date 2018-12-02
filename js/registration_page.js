@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', displayCourses, false);
 document.getElementById("enroll-button").addEventListener("click", completeRegistration, false)
 
 function displayCourses() {
+    setBackDestination()
     var courseList = document.getElementById("enrolled")
 
     // Delete any previous children

@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', fillClass, false);
 var school, dept, num;
 
 function fillClass() {
+    setBackDestination()
     var s = window.location.href
     s = s.split("?")[1]
     var title = s.split("=")[1]

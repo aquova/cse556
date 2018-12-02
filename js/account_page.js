@@ -35,8 +35,9 @@ function populateSchedule() {
     dp.init()
     dp.events.list = processCalendarEvents()
     dp.onEventClicked = function (d) {
-        var page = "detail.html?class=" + d.e["data"]["name"]
-        window.open(page, '_top')
+        // var page = "detail.html?class=" + d.e["data"]["name"]
+        // window.open(page, '_top')
+        showClassPopUp(d.e["data"]["name"], dp, d)
     }
     dp.update()
 }
@@ -218,10 +219,132 @@ function populateRequirements() {
 
 }
 
+function showClassPopUp(class_name, dp, d){
+    console.log(class_name)
+    var modal = document.getElementById('ClassPopUp');
+
+    var class_id = document.getElementById("class_title");
+    class_id.innerHTML = class_name;
+
+   // var rating = document.getElementById("rating_detail");
+    var time_slot = document.getElementById("class_time");
+
+    var c ;
+    for (var i = 0; i < classesDB.length; i++) {
+        if (classesDB[i][7].toLowerCase().includes(class_name.toLowerCase())) {
+            c = classesDB[i];
+            console.log(c)
+        }
+    }
+
+    // var count = 0;
+    // var sum = 0;
+
+    // for(var i = 0; i<reviews.length; i++){
+    //     if (reviews[i][0] == c[0] && reviews[i][1] == c[1] && reviews[i][2] == c[2]){
+    //         sum = sum + parseInt(reviews[i][5])
+    //         count = count + 1
+    //     }
+    // }
+
+    // rating.innerHTML = sum/count;
+    time_slot.innerHTML = c[5] + ' '+ twentyfour2ampm(c[3])+'-'+ twentyfour2ampm(c[4])
+
+    var course = [c[1], c[2]];
+
+    document.getElementById("doDrop").onclick = function(){
+        dropCoursePop(course, dp, d);
+    }
+    modal.style.display = "block";
+}
+
+function showReviewChunk() {
+    var x = document.getElementById("review_section");
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
+
+function submit_review() {
+    var modal = document.getElementById('review_section');
+    var review = document.getElementById("review_input").value
+    var grade = document.getElementById("grade_options").value
+    var rating = document.getElementById("rating_options").value
+
+    var s = school + ","+ dept + ","+ num + ","+review + "," + grade + "," + rating
+
+    addReview(s)
+
+    modal.style.display = "none";
+
+}
+
+function  setup_popups() {
+
+    var modal_one = document.getElementById('ClassPopUp');
+    // Get the <span> element that closes the modal
+    //var span = document.getElementsByClassName("close")[0];
+    var span_one = document.getElementById("close_one");
+    // When the user clicks on <span> (x), close the modal
+    span_one.onclick = function () {
+        modal_one.style.display = "none";
+    };
+
+    var modal = document.getElementById('DropCoursePopUp');
+    var btn = document.getElementById("dropCourse");
+
+    btn.onclick = function(){
+        modal.style.display = "block";
+    }
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[1];
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+        modal.style.display = "none";
+    };
+
+    document.getElementById("dontDrop").onclick = function(){
+        modal.style.display = "none";
+    }
+
+}
+
+function dropCoursePop(course, cal, event){
+    removeCourse(course)
+    document.getElementById('ClassPopUp').style.display = "none"
+    document.getElementById('DropCoursePopUp').style.display = "none"
+
+    var user = getUsername()
+
+    var user_req = requirements[user];
+
+    var c = course[0] + " " + course[1]
+    console.log(c)
+    for(var i = 0; i < user_req[2].length; i ++){
+        if(user_req[2][i] == (c)){
+            console.log("slice")
+            user_req[2].splice(i,1)
+        }
+    }    
+
+    for(var i = 0; i < cal.events.list.length; i++){
+        if( cal.events.list[i].text == c){
+            cal.events.remove(cal.events.list[i])
+        }
+
+    }
+    cal.events.remove(event)
+
+}
+
+setBackDestination()
 // Display 'Current Schedule' tab on page load
 document.getElementById("defaultOpen").click()
 populateRequirements()
 populateSchedule()
 academicCalendar()
 populateReviews()
+setup_popups()
 document.getElementById("welcome-message").innerHTML = "Welcome " + getUsername() + "!"

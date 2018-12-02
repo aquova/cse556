@@ -12,10 +12,22 @@ function clearCookies() {
     }
 }
 
+function signOut(){
+    clearCookies();
+    window.location = "./../index.html"
+}
+
 function setUsername(name) {
     document.cookie = "username=" + name + "; expires=Tue, 01 Jan 2019 00:00:01 GMT"
     window.location = "pages/account.html"
 
+}
+
+function setBackDestination(){
+}
+
+function goBack(){
+    window.history.back();
 }
 
 function getUsername() {
@@ -69,6 +81,8 @@ function checkCourse(course) {
 }
 
 function removeCourse(course) {
+    console.log("dropping")
+    console.log(course)
     // If course is in cookie, then remove
     if (checkCourse(course)) {
         // If a cookie is set to a past date, it is automatically destroyed

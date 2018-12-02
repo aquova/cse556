@@ -1,4 +1,5 @@
 // Code for manipulating the search page
+setBackDestination()
 function toggleAdvanced() {
     var adv = document.getElementById("advanced")
 
