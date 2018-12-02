@@ -34,7 +34,13 @@ function parse() {
     var params = s.split("&")
     var textBox = params[0].split("=")[1]
     var school = params[1].split("=")[1]
-    var department = params[2].split("=")[1].split(",")[1].replace("%20", '')
+    var department = params[2].split("=")[1]
+    if(department == "ALL"){
+        console.log("ALL")
+    }else{
+        department = department.split(",")[1].replace("%20", '')
+    }
+    
     console.log(department)
     var list = document.getElementById('listing');
     while (list.firstChild) {
