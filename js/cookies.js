@@ -32,7 +32,7 @@ function goBack(){
 }
 
 function getUsername() {
-    
+
     var name = "username="
     var decodedCookie = decodeURIComponent(document.cookie)
     var ca = decodedCookie.split(';')
@@ -46,7 +46,7 @@ function getUsername() {
             return c.substring(name.length, c.length)
         }
     }
-    
+
     return ""
 }
 
@@ -84,9 +84,9 @@ function checkCourse(course) {
     return false
 }
 
+// Same as 'dropCourse' but completely removes it
+// Probably could merge functions but idgaf
 function removeCourse(course) {
-    console.log("dropping")
-    console.log(course)
     // If course is in cookie, then remove
     if (checkCourse(course)) {
         // If a cookie is set to a past date, it is automatically destroyed
@@ -132,7 +132,6 @@ function getRegistered() {
                 var dept = storedName[0].split(" ")[0]
                 var id = storedName[0].split(" ")[1]
                 reg.push(findCourseArray(dept, id))
-                
             }
         }
     }

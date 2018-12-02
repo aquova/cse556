@@ -222,7 +222,6 @@ function populateRequirements() {
 }
 
 function showClassPopUp(class_name, dp, d){
-    console.log(class_name)
     var modal = document.getElementById('ClassPopUp');
 
     var class_id = document.getElementById("class_title");
@@ -235,7 +234,6 @@ function showClassPopUp(class_name, dp, d){
     for (var i = 0; i < classesDB.length; i++) {
         if (classesDB[i][7].toLowerCase().includes(class_name.toLowerCase())) {
             c = classesDB[i];
-            console.log(c)
         }
     }
 
@@ -249,13 +247,14 @@ function showClassPopUp(class_name, dp, d){
     //     }
     // }
 
-    // rating.innerHTML = sum/count;
     time_slot.innerHTML = c[5] + ' '+ twentyfour2ampm(c[3])+'-'+ twentyfour2ampm(c[4])
 
-    var course = [c[1], c[2]];
-
     document.getElementById("doDrop").onclick = function(){
-        dropCoursePop(course, dp, d);
+        dropCoursePop(c, dp, d);
+    }
+
+    document.getElementById("add_review").onclick = function() {
+        submit_review(c)
     }
     modal.style.display = "block";
 }
@@ -269,18 +268,19 @@ function showReviewChunk() {
     }
 }
 
-function submit_review() {
+function submit_review(c) {
     var modal = document.getElementById('review_section');
     var review = document.getElementById("review_input").value
     var grade = document.getElementById("grade_options").value
     var rating = document.getElementById("rating_options").value
 
-    var s = school + ","+ dept + ","+ num + ","+review + "," + grade + "," + rating
-
+    var s = c[0] + ","+ c[1] + ","+ c[2] + ","+ review + "," + grade + "," + rating
     addReview(s)
+    populateReviews()
 
     modal.style.display = "none";
-
+    document.getElementById('ClassPopUp').style.display = "none"
+    document.getElementById("reviews").reload()
 }
 
 function  setup_popups() {
@@ -323,7 +323,12 @@ function dropCoursePop(course, cal, event){
 
     var user_req = requirements[user];
 
-    var c = course[0] + " " + course[1]
+    var c = course[1] + " " + course[2]
+    for(var i = 0; i < user_req[2].length; i ++){
+        if(user_req[2][i] == (c)){
+            user_req[2].splice(i,1)
+        }
+    }
 
     // for(var i = 0; i < user_req[2].length; i ++){
     //     if(user_req[2][i] == (c)){
