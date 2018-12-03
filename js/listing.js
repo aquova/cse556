@@ -57,7 +57,7 @@ function parse() {
             console.log("checked")
             for (var i = 0; i < crossDepart.length; i++) {
                 // A correct match has its title as a substring
-                if (crossDepart[i][7].toLowerCase().includes(textBox) || crossDepart[i][6].toLowerCase().includes(textBox.toLowerCase())) {
+                if (crossDepart[i][7].toLowerCase().includes(textBox) || crossDepart[i][6].toLowerCase().includes(textBox.toLowerCase()) || textBox.toLocaleLowerCase().includes(crossDepart[i][1].toLowerCase())|| textBox.toLocaleLowerCase().includes(crossDepart[i][2])) {
                     // Matches the school dropdown
                     if ((crossDepart[i][0] == school) || (school == "ALL")) {
                         // Matches the department dropdown
@@ -91,7 +91,7 @@ function parse() {
             count = 0;
             for (var i = 0; i < classesDB.length; i++) {
                 // A correct match has its title as a substring
-                if (classesDB[i][7].toLowerCase().includes(textBox) || classesDB[i][6].toLowerCase().includes(textBox.toLowerCase())) {
+                if (classesDB[i][7].toLowerCase().includes(textBox) || classesDB[i][6].toLowerCase().includes(textBox.toLowerCase())|| textBox.toLocaleLowerCase().includes(classesDB[i][1].toLowerCase())|| textBox.toLocaleLowerCase().includes(classesDB[i][2])) {
                     // Matches the school dropdown
                     if ((classesDB[i][0] == school) || (school == "ALL")) {
                         // Matches the department dropdown
@@ -131,7 +131,7 @@ function parse() {
         if(textBox.length != 0){
             for (var i = 0; i < allMusic.length; i++) {
                 // A correct match has its title as a substring
-                if (allMusic[i][7].toLowerCase().includes(textBox) || allMusic[i][6].toLowerCase().includes(textBox.toLowerCase())) {
+                if (allMusic[i][7].toLowerCase().includes(textBox) || allMusic[i][6].toLowerCase().includes(textBox.toLowerCase()) || textBox.toLocaleLowerCase().includes(allMusic[i][1].toLowerCase())|| textBox.toLocaleLowerCase().includes(allMusic[i][2])) {
                     // Matches the school dropdown
                     if ((allMusic[i][0] == school) || (school == "ALL")) {
                         // Matches the department dropdown
@@ -162,7 +162,7 @@ function parse() {
             count = 0;
             for (var i = 0; i < classesDB.length; i++) {
                 // A correct match has its title as a substring
-                if (classesDB[i][7].toLowerCase().includes(textBox) || classesDB[i][6].toLowerCase().includes(textBox.toLowerCase())) {
+                if (classesDB[i][7].toLowerCase().includes(textBox) || classesDB[i][6].toLowerCase().includes(textBox.toLowerCase()) || textBox.toLocaleLowerCase().includes(classesDB[i][1].toLowerCase())|| textBox.toLocaleLowerCase().includes(classesDB[i][2])) {
                     // Matches the school dropdown
                     if ((classesDB[i][0] == school) || (school == "ALL")) {
                         // Matches the department dropdown
@@ -199,7 +199,7 @@ function parse() {
         var count = 0;
         for (var i = 0; i < classesDB.length; i++) {
             // A correct match has its title as a substring
-            if (classesDB[i][7].toLowerCase().includes(textBox) || classesDB[i][6].toLowerCase().includes(textBox.toLowerCase())) {
+            if (classesDB[i][7].toLowerCase().includes(textBox) || classesDB[i][6].toLowerCase().includes(textBox.toLowerCase()) || textBox.toLocaleLowerCase().includes(classesDB[i][1].toLowerCase())|| textBox.toLocaleLowerCase().includes(classesDB[i][2])) {
                 // Matches the school dropdown
                 if ((classesDB[i][0] == school) || (school == "ALL")) {
                     // Matches the department dropdown
