@@ -8,7 +8,7 @@ function fillClass() {
     console.log(s)
     var save = s.split("?")
     s = save[1]
-    
+
     var sp = s.split("=")
     var title = sp[1]
 
@@ -36,12 +36,6 @@ function fillClass() {
         }
         title = title + "?" + t;
     }
-
-    console.log(c)
-    console.log(save)
-
-    console.log(title)
-
 
     for (var i = 0; i < classesDB.length; i++) {
         // A correct match has its title as a substring

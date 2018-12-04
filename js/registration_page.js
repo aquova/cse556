@@ -39,17 +39,13 @@ function displayCourses() {
 }
 
 function completeRegistration() {
-    console.log("reg")
     register()
     displayCourses()
     var modal = document.getElementById('RegisterForClassesPopUp');
     modal.style.display = "none"
-    
 }
 
 function  setup_popups() {
-
-
     var modal = document.getElementById('RegisterForClassesPopUp');
 
     // Get the button that opens the modal

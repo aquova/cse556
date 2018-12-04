@@ -35,9 +35,6 @@ function populateSchedule() {
     dp.init()
     dp.events.list = processCalendarEvents()
     dp.onEventClicked = function (d) {
-        // var page = "detail.html?class=" + d.e["data"]["name"]
-        // window.open(page, '_top')
-        console.log(d.e["data"])
         showClassPopUp(d.e["data"]["name"], dp, d)
     }
     dp.update()
@@ -45,7 +42,6 @@ function populateSchedule() {
 
 function processCalendarEvents() {
     var chosen = getRegistered()
-    console.log(chosen)
     var output = []
 
     // Generates the array of classes, which should be an array of dictionaries
@@ -321,42 +317,11 @@ function  setup_popups() {
 }
 
 function dropCoursePop(course, cal, event){
-    console.log(event.e["data"])
     removeCourse(course)
     document.getElementById('ClassPopUp').style.display = "none"
     document.getElementById('DropCoursePopUp').style.display = "none"
 
-    var user = getUsername()
-
-    var user_req = requirements[user];
-
-    var c = course[1] + " " + course[2]
-    for(var i = 0; i < user_req[2].length; i ++){
-        if(user_req[2][i] == (c)){
-            user_req[2].splice(i,1)
-        }
-    }
-
-    // for(var i = 0; i < user_req[2].length; i ++){
-    //     if(user_req[2][i] == (c)){
-    //         console.log("slice")
-    //         user_req[2].splice(i,1)
-    //     }
-    // }
-
-
-
-    console.log(cal.events.list)
-    for(var i = 0; i < cal.events.list.length; i++){
-        console.log(cal.events.list[i])
-        if( cal.events.list[i] == event.e["data"]){
-            console.log("deleting here")
-            console.log(cal.events.list[i])
-            cal.events.remove(cal.events.list[i])
-        }
-    }
-    console.log(cal.events.list)
-    cal.update()
+    populateSchedule()
 }
 
 setBackDestination()
