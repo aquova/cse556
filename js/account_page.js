@@ -274,13 +274,20 @@ function submit_review(c) {
     var grade = document.getElementById("grade_options").value
     var rating = document.getElementById("rating_options").value
 
+    console.log(grade)
+    console.log(rating)
+
     var s = c[0] + ","+ c[1] + ","+ c[2] + ","+ review + "," + grade + "," + rating
     addReview(s)
     populateReviews()
 
     modal.style.display = "none";
     document.getElementById('ClassPopUp').style.display = "none"
-    document.getElementById("reviews").reload()
+
+    // Reset popup form
+    document.getElementById("review_input").value = ""
+    document.getElementById("grade_options").value = "A"
+    document.getElementById("rating_options").value = "5"
 }
 
 function  setup_popups() {
@@ -335,9 +342,9 @@ function dropCoursePop(course, cal, event){
     //         console.log("slice")
     //         user_req[2].splice(i,1)
     //     }
-    // }    
+    // }
 
-  
+
 
     console.log(cal.events.list)
     for(var i = 0; i < cal.events.list.length; i++){

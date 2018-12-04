@@ -149,13 +149,11 @@ var classesDB = [
 // A map of Schools to an array of its departments
 var deptMap = {
     "ARCH" : ["Architecture, ARCH"],
-    "ART" : ["ART"],
-    "AS" : ["Biology, BIO", "Chemistry, CHEM", "Physics, PHYS"],
+    "ART" : ["Art, ART"],
+    "AS" : ["Biology, BIO", "Chemistry, CHEM", "Physics, PHYS", "African and African American Studies, AFAS", "American Cultural Studies, AMCS", "Anthropology, ANTHRO", "Music, MUSIC", "Dance, DANCE", "Drama, DRAMA", "Psychology, PSYCH", "College Writing Program, CWP", "Korean, KOREAN", "Archaeology, ARC", "Education, EDUC", "Economics, ECON"],
     "BUS" : ["Accounting, ACCT"],
-    "DVA" : [],
     "ENG" : ["Computer Science and Computer Engineering, CSE", "Biomedical Engineering, BME", "Electrical and Systems, ESE"],
-    "LAW" : ["LAW"],
-    "MED" : []
+    "LAW" : ["Law, LAW"],
 }
 
 var users = [

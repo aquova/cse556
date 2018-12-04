@@ -1,3 +1,7 @@
+window.onload = function() {
+    populateDepartment()
+}
+
 // Code for manipulating the search page
 setBackDestination()
 function toggleAdvanced() {
@@ -18,10 +22,7 @@ function showResults(matches) {
         results.removeChild(results.firstChild);
     }
 
-
     for (var i = 0; i < matches.length; i++) {
-
-
         var res = document.createElement("div")
         res.classList.add("course")
         var name = document.createElement("p")
@@ -70,6 +71,15 @@ function populateDepartment() {
 
     if (school == "ALL") {
         // Populate with all values in map
+        var schools = Object.keys(deptMap)
+        for (var i = 0; i < schools.length; i++) {
+            for (var j = 0; j < deptMap[schools[i]].length; j++) {
+                var opt = document.createElement("option")
+                opt.value = deptMap[schools[i]][j]
+                opt.innerHTML = deptMap[schools[i]][j]
+                departmentNode.append(opt)
+            }
+        }
     } else {
         var dpts = deptMap[school]
         for (var i = 0; i < dpts.length; i++) {
@@ -79,7 +89,4 @@ function populateDepartment() {
             departmentNode.append(opt)
         }
     }
-
-    showResults(matches)
-    console.log(textBox + " " + school + " " + department);
 }
